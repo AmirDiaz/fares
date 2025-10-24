@@ -208,8 +208,83 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: var(--transition);
         }
         
+        .mobile-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            background: var(--primary);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .mobile-nav li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .mobile-nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-dropdown-menu {
+            background: rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        
+        .mobile-dropdown-menu.active {
+            display: block;
+        }
+        
+        .mobile-dropdown-menu a {
+            padding: 12px 30px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .mobile-dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mobile-dropdown-toggle i {
+            transition: var(--transition);
+        }
+        
+        .mobile-dropdown-toggle.active i {
+            transform: rotate(180deg);
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 55, 72, 0.9) 100%), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -395,7 +470,7 @@
             font-size: 1.05rem;
         }
         
-        /* Products Section - Fixed Alignment */
+        /* Products Section */
         .products {
             padding: 100px 0;
             background: #f8fafc;
@@ -403,12 +478,11 @@
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 30px;
-            align-items: stretch;
         }
         
         .product-card {
@@ -418,9 +492,6 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
         }
         
         .product-card:hover {
@@ -449,14 +520,12 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
-            flex-shrink: 0;
         }
         
         .product-img img {
             max-width: 80%;
             max-height: 80%;
             transition: var(--transition);
-            object-fit: contain;
         }
         
         .product-card:hover .product-img img {
@@ -465,29 +534,18 @@
         
         .product-content {
             padding: 25px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
         }
         
         .product-content h3 {
             font-size: 1.4rem;
             margin-bottom: 10px;
             color: var(--primary);
-            line-height: 1.3;
-            min-height: 3.6em;
         }
         
         .product-content p {
             color: var(--gray);
             margin-bottom: 20px;
             font-size: 0.95rem;
-            line-height: 1.5;
-            flex: 1;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
         
         .product-price {
@@ -496,22 +554,19 @@
             font-size: 1.4rem;
             margin-bottom: 20px;
             display: block;
-            flex-shrink: 0;
         }
         
         .product-actions {
             display: flex;
             justify-content: space-between;
             gap: 10px;
-            margin-top: auto;
-            flex-shrink: 0;
         }
         
         .buy-now {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 10px 20px;
             border-radius: 6px;
             cursor: pointer;
             transition: var(--transition);
@@ -522,7 +577,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.95rem;
         }
         
         .buy-now:hover {
@@ -533,7 +587,7 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: bold;
-            padding: 12px 15px;
+            padding: 10px 15px;
             border: 1px solid var(--primary);
             border-radius: 6px;
             transition: var(--transition);
@@ -542,24 +596,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.95rem;
         }
         
         .view-details:hover {
             background: var(--primary);
             color: white;
-        }
-        
-        /* Ensure consistent icon sizes */
-        .product-img .fas {
-            font-size: 4rem;
-            color: #1a365d;
-            transition: var(--transition);
-        }
-        
-        .product-card:hover .product-img .fas {
-            transform: scale(1.1);
-            color: var(--secondary);
         }
         
         /* Services Section */
@@ -824,31 +865,11 @@
             }
             
             .main-nav {
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background: var(--primary);
-                flex-direction: column;
-                width: 100%;
-                display: none;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-                border-radius: 0 0 8px 8px;
-            }
-            
-            .main-nav.active {
-                display: flex;
-            }
-            
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                background: rgba(255, 255, 255, 0.05);
-                width: 100%;
                 display: none;
             }
             
-            .dropdown.active .dropdown-menu {
-                display: block;
+            .search-box {
+                display: none;
             }
             
             .hero h2 {
@@ -865,6 +886,31 @@
         }
         
         @media (max-width: 768px) {
+            .header-container {
+                padding: 12px 20px;
+                flex-direction: row;
+                gap: 15px;
+            }
+            
+            .logo {
+                gap: 10px;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.4rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.75rem;
+                margin-top: 2px;
+            }
+            
             .btn-container {
                 display: flex;
                 flex-direction: column;
@@ -894,25 +940,6 @@
                 padding-right: 20px;
             }
             
-            .product-content h3 {
-                min-height: auto;
-                -webkit-line-clamp: 2;
-            }
-            
-            .product-content p {
-                -webkit-line-clamp: 2;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .header-container {
-                padding: 15px 20px;
-            }
-            
-            .logo-text h1 {
-                font-size: 2rem;
-            }
-            
             .hero {
                 padding: 80px 0 60px;
             }
@@ -921,8 +948,53 @@
                 font-size: 2rem;
             }
             
+            .hero p {
+                font-size: 1rem;
+            }
+            
             .section-title h2 {
                 font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 10px 15px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 1.3rem;
+                padding: 6px;
+            }
+            
+            .hero {
+                padding: 70px 0 50px;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 0.95rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
             }
             
             .search-box {
@@ -942,6 +1014,39 @@
             
             .notification.show {
                 transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 8px 12px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1.1rem;
+            }
+            
+            .logo {
+                gap: 8px;
+            }
+            
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -969,35 +1074,47 @@
             </div>
             
             <div class="nav-container">
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <ul class="main-nav" id="mainNav">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li class="dropdown">
-                        <a href="#" id="productsLink">المنتجات <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" data-category="power-tools">الأدوات الكهربائية</a></li>
-                            <li><a href="#" data-category="hand-tools">الأدوات اليدوية</a></li>
-                            <li><a href="#" data-category="safety">معدات السلامة</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">العلامات التجارية</a></li>
-                    <li><a href="#">العروض</a></li>
-                    <li><a href="#">اتصل بنا</a></li>
-                </ul>
-                
                 <div class="header-actions">
                     <div class="search-box">
                         <input type="text" placeholder="ابحث عن المنتج...">
                         <button><i class="fas fa-search"></i></button>
                     </div>
                 </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li>
+                    <a href="#" class="mobile-dropdown-toggle" id="mobileProductsToggle">
+                        المنتجات <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="mobile-dropdown-menu" id="mobileProductsMenu">
+                        <a href="#" data-category="power-tools">الأدوات الكهربائية</a>
+                        <a href="#" data-category="hand-tools">الأدوات اليدوية</a>
+                        <a href="#" data-category="safety">معدات السلامة</a>
+                    </div>
+                </li>
+                <li><a href="#">العلامات التجارية</a></li>
+                <li><a href="#">العروض</a></li>
+                <li><a href="#">اتصل بنا</a></li>
+                <li>
+                    <div class="search-box" style="display: flex; margin: 15px 20px; background: rgba(255,255,255,0.15);">
+                        <input type="text" placeholder="ابحث عن المنتج..." style="width: 100%;">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </li>
+            </ul>
         </div>
     </header>
 
+    <!-- The rest of your content remains exactly the same -->
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -1204,9 +1321,9 @@
         // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mainNav = document.getElementById('mainNav');
-            const productsLink = document.getElementById('productsLink');
-            const dropdown = document.querySelector('.dropdown');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileProductsToggle = document.getElementById('mobileProductsToggle');
+            const mobileProductsMenu = document.getElementById('mobileProductsMenu');
             const notification = document.getElementById('notification');
             const notificationText = document.getElementById('notificationText');
             const browseProducts = document.getElementById('browseProducts');
@@ -1214,25 +1331,25 @@
             
             // Mobile menu toggle
             mobileMenuBtn.addEventListener('click', function() {
-                mainNav.classList.toggle('active');
-                mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+                mobileNav.classList.toggle('active');
+                mobileMenuBtn.innerHTML = mobileNav.classList.contains('active') ? 
                     '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             });
             
-            // Dropdown menu for mobile
-            productsLink.addEventListener('click', function(e) {
-                if (window.innerWidth <= 992) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                }
+            // Mobile dropdown toggle
+            mobileProductsToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                mobileProductsToggle.classList.toggle('active');
+                mobileProductsMenu.classList.toggle('active');
             });
             
             // Close mobile menu when clicking outside
             document.addEventListener('click', function(e) {
-                if (!e.target.closest('.nav-container') && window.innerWidth <= 992) {
-                    mainNav.classList.remove('active');
+                if (!e.target.closest('.nav-container') && !e.target.closest('.mobile-nav')) {
+                    mobileNav.classList.remove('active');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    dropdown.classList.remove('active');
+                    mobileProductsToggle.classList.remove('active');
+                    mobileProductsMenu.classList.remove('active');
                 }
             });
             
@@ -1253,6 +1370,10 @@
                 document.getElementById('productsSection').scrollIntoView({
                     behavior: 'smooth'
                 });
+                
+                // Close mobile menu if open
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
             
             // Order now button
@@ -1268,32 +1389,25 @@
                     orderNow.innerHTML = originalText;
                     window.location.href = 'meuleuse.html';
                 }, 1500);
-            });
-            
-            // Dropdown menu functionality for desktop
-            const dropdowns = document.querySelectorAll('.dropdown');
-            
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('mouseenter', function() {
-                    if (window.innerWidth > 992) {
-                        this.querySelector('.dropdown-menu').style.display = 'block';
-                    }
-                });
                 
-                dropdown.addEventListener('mouseleave', function() {
-                    if (window.innerWidth > 992) {
-                        this.querySelector('.dropdown-menu').style.display = 'none';
-                    }
-                });
+                // Close mobile menu if open
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
             
             // Product category filtering
-            const categoryLinks = document.querySelectorAll('.dropdown-menu a');
+            const categoryLinks = document.querySelectorAll('.mobile-dropdown-menu a');
             categoryLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const category = this.getAttribute('data-category');
                     showNotification(`جاري تحميل منتجات ${this.textContent}`, 'success');
+                    
+                    // Close mobile menu
+                    mobileNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileProductsToggle.classList.remove('active');
+                    mobileProductsMenu.classList.remove('active');
                     
                     // In a real implementation, this would filter products
                     setTimeout(() => {
@@ -1305,21 +1419,32 @@
             });
             
             // Search functionality
-            const searchBox = document.querySelector('.search-box input');
-            const searchButton = document.querySelector('.search-box button');
+            const searchBoxes = document.querySelectorAll('.search-box input');
+            const searchButtons = document.querySelectorAll('.search-box button');
             
-            searchButton.addEventListener('click', function() {
-                if (searchBox.value.trim() !== '') {
-                    showNotification(`جاري البحث عن "${searchBox.value}"`, 'success');
-                    // In a real implementation, this would search products
-                }
+            searchButtons.forEach((button, index) => {
+                button.addEventListener('click', function() {
+                    const searchBox = searchBoxes[index];
+                    if (searchBox.value.trim() !== '') {
+                        showNotification(`جاري البحث عن "${searchBox.value}"`, 'success');
+                        // Close mobile menu if open
+                        mobileNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        // In a real implementation, this would search products
+                    }
+                });
             });
             
-            searchBox.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' && this.value.trim() !== '') {
-                    showNotification(`جاري البحث عن "${this.value}"`, 'success');
-                    // In a real implementation, this would search products
-                }
+            searchBoxes.forEach(box => {
+                box.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' && this.value.trim() !== '') {
+                        showNotification(`جاري البحث عن "${this.value}"`, 'success');
+                        // Close mobile menu if open
+                        mobileNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        // In a real implementation, this would search products
+                    }
+                });
             });
         });
     </script>
