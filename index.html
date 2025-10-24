@@ -838,11 +838,10 @@
             to { transform: rotate(360deg); }
         }
         
-        /* Responsive */
+        /* Responsive - Fixed Mobile Issues */
         @media (max-width: 1100px) {
             .header-container {
-                flex-direction: column;
-                gap: 20px;
+                padding: 15px 20px;
             }
             
             .nav-container {
@@ -883,17 +882,25 @@
             .section-title h2 {
                 font-size: 2.2rem;
             }
+            
+            /* Fix for blue accent lines on mobile */
+            .feature-card::before,
+            .service-card::before {
+                height: 3px;
+            }
         }
         
         @media (max-width: 768px) {
             .header-container {
-                padding: 12px 20px;
+                padding: 12px 15px;
                 flex-direction: row;
-                gap: 15px;
+                justify-content: space-between;
             }
             
             .logo {
                 gap: 10px;
+                transform: none;
+                margin: 0;
             }
             
             .logo-icon {
@@ -955,11 +962,16 @@
             .section-title h2 {
                 font-size: 1.8rem;
             }
+            
+            .section-title h2::after {
+                height: 3px;
+                width: 60px;
+            }
         }
         
         @media (max-width: 576px) {
             .header-container {
-                padding: 10px 15px;
+                padding: 10px 12px;
             }
             
             .logo-text h1 {
@@ -1015,11 +1027,22 @@
             .notification.show {
                 transform: translateY(0);
             }
+            
+            /* Fix for mobile feature/service cards */
+            .feature-card, .service-card {
+                padding: 30px 20px;
+            }
+            
+            .feature-icon, .service-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
         }
         
         @media (max-width: 480px) {
             .header-container {
-                padding: 8px 12px;
+                padding: 8px 10px;
             }
             
             .logo-text h1 {
@@ -1046,6 +1069,14 @@
             
             .btn {
                 padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.4rem;
+            }
+            
+            .section-title p {
                 font-size: 1rem;
             }
         }
@@ -1114,7 +1145,6 @@
         </div>
     </header>
 
-    <!-- The rest of your content remains exactly the same -->
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
