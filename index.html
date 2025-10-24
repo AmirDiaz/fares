@@ -162,6 +162,32 @@
             gap: 20px;
         }
         
+        .cart-icon {
+            position: relative;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 10px;
+            border-radius: 50%;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
         .search-box {
             display: flex;
             background: rgba(255, 255, 255, 0.1);
@@ -562,7 +588,7 @@
             gap: 10px;
         }
         
-        .buy-now {
+        .add-to-cart {
             background: var(--primary);
             color: white;
             border: none;
@@ -577,9 +603,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 8px;
         }
         
-        .buy-now:hover {
+        .add-to-cart:hover {
             background: #2d3748;
         }
         
@@ -1110,6 +1137,10 @@
                         <input type="text" placeholder="ابحث عن المنتج...">
                         <button><i class="fas fa-search"></i></button>
                     </div>
+                    <div class="cart-icon" onclick="window.location.href='cart.html'">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
                 </div>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1141,6 +1172,12 @@
                         <button><i class="fas fa-search"></i></button>
                     </div>
                 </li>
+                <li>
+                    <a href="cart.html" style="display: flex; align-items: center; justify-content: space-between;">
+                        <span>سلة التسوق</span>
+                        <span class="cart-count" id="mobile-cart-count">0</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </header>
@@ -1152,7 +1189,7 @@
             <p>نوفر لك أفضل تشكيلة من الأدوات والمعدات الاحترافية بجودة عالمية وأسعار تنافسية</p>
             <div class="btn-container">
                 <a href="#" class="btn btn-outline" id="browseProducts">استعرض المنتجات</a>
-                <a href="#" class="btn" id="orderNow">اطلب الآن</a>
+                <a href="cart.html" class="btn">سلة التسوق</a>
             </div>
         </div>
     </section>
@@ -1217,7 +1254,9 @@
                     <p>مثقاب بقوة 600 واط مع خاصية الطرق، مثالي لأعمال الحفر في الخرسانة والخشب والمعادن</p>
                     <span class="product-price">4,500 د.ج</span>
                     <div class="product-actions">
-                        <a href="perceuse.html" class="buy-now">شراء الآن</a>
+                        <button class="add-to-cart" data-id="1" data-name="Perceuse à percussion 600W" data-price="4500" data-image="https://soficlef.dz/wp-content/uploads/2021/12/PP600-13-600x600.jpg">
+                            <i class="fas fa-cart-plus"></i> أضف إلى السلة
+                        </button>
                         <a href="perceuse.html" class="view-details">تفاصيل</a>
                     </div>
                 </div>
@@ -1233,13 +1272,16 @@
                     <p>ماكينة جلخ زاوية بقوة 1000 واط، مثالية لقطع وتلميع المعادن والمواد الصلبة</p>
                     <span class="product-price">3,800 د.ج</span>
                     <div class="product-actions">
-                        <a href="meuleuse.html" class="buy-now">شراء الآن</a>
+                        <button class="add-to-cart" data-id="2" data-name="Meuleuse d'angle 1000W" data-price="3800" data-image="https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg">
+                            <i class="fas fa-cart-plus"></i> أضف إلى السلة
+                        </button>
                         <a href="meuleuse.html" class="view-details">تفاصيل</a>
                     </div>
                 </div>
             </div>
             
             <div class="product-card">
+                <div class="product-badge">جديد</div>
                 <div class="product-img">
                     <i class="fas fa-toolbox" style="font-size: 4rem; color: #1a365d;"></i>
                 </div>
@@ -1248,7 +1290,9 @@
                     <p>صندوق أدوات متين مع مقابض مريحة وتقسيمات داخلية منظمة لتخزين جميع أدواتك</p>
                     <span class="product-price">1,800 د.ج</span>
                     <div class="product-actions">
-                        <a href="#" class="buy-now">شراء الآن</a>
+                        <button class="add-to-cart" data-id="3" data-name="صندوق أدوات متين" data-price="1800" data-image="toolbox">
+                            <i class="fas fa-cart-plus"></i> أضف إلى السلة
+                        </button>
                         <a href="#" class="view-details">تفاصيل</a>
                     </div>
                 </div>
@@ -1264,7 +1308,9 @@
                     <p>خوذة أمان عالية الجودة مع حزام تعديل مريح وفتحات تهوية للحماية المثلى</p>
                     <span class="product-price">750 د.ج</span>
                     <div class="product-actions">
-                        <a href="#" class="buy-now">شراء الآن</a>
+                        <button class="add-to-cart" data-id="4" data-name="خوذة أمان صناعية" data-price="750" data-image="helmet">
+                            <i class="fas fa-cart-plus"></i> أضف إلى السلة
+                        </button>
                         <a href="#" class="view-details">تفاصيل</a>
                     </div>
                 </div>
@@ -1325,7 +1371,7 @@
                 <ul class="footer-links">
                     <li><a href="index.html">الرئيسية <i class="fas fa-chevron-left"></i></a></li>
                     <li><a href="#productsSection">المنتجات <i class="fas fa-chevron-left"></i></a></li>
-                    <li><a href="#">العلامات التجارية <i class="fas fa-chevron-left"></i></a></li>
+                    <li><a href="cart.html">سلة التسوق <i class="fas fa-chevron-left"></i></a></li>
                     <li><a href="#">العروض <i class="fas fa-chevron-left"></i></a></li>
                     <li><a href="#">اتصل بنا <i class="fas fa-chevron-left"></i></a></li>
                 </ul>
@@ -1348,16 +1394,66 @@
     </footer>
 
     <script>
+        // Shopping Cart Functions
+        function getCart() {
+            return JSON.parse(localStorage.getItem('qsv_cart')) || {};
+        }
+        
+        function saveCart(cart) {
+            localStorage.setItem('qsv_cart', JSON.stringify(cart));
+            updateCartCount();
+        }
+        
+        function addToCart(productId, productName, productPrice, productImage) {
+            const cart = getCart();
+            
+            if (cart[productId]) {
+                cart[productId].quantity += 1;
+            } else {
+                cart[productId] = {
+                    id: productId,
+                    name: productName,
+                    price: parseInt(productPrice),
+                    image: productImage,
+                    quantity: 1
+                };
+            }
+            
+            saveCart(cart);
+            showNotification('تمت إضافة المنتج إلى سلة التسوق', 'success');
+        }
+        
+        function updateCartCount() {
+            const cart = getCart();
+            const totalItems = Object.values(cart).reduce((total, item) => total + item.quantity, 0);
+            
+            document.getElementById('cart-count').textContent = totalItems;
+            document.getElementById('mobile-cart-count').textContent = totalItems;
+        }
+        
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notification-text');
+            
+            notificationText.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
         // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileNav = document.getElementById('mobileNav');
             const mobileProductsToggle = document.getElementById('mobileProductsToggle');
             const mobileProductsMenu = document.getElementById('mobileProductsMenu');
-            const notification = document.getElementById('notification');
-            const notificationText = document.getElementById('notificationText');
             const browseProducts = document.getElementById('browseProducts');
-            const orderNow = document.getElementById('orderNow');
+            
+            // Update cart count on page load
+            updateCartCount();
             
             // Mobile menu toggle
             mobileMenuBtn.addEventListener('click', function() {
@@ -1383,17 +1479,6 @@
                 }
             });
             
-            // Show notification function
-            function showNotification(message, type = 'success') {
-                notificationText.textContent = message;
-                notification.className = `notification ${type}`;
-                notification.classList.add('show');
-                
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000);
-            }
-            
             // Browse products button
             browseProducts.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1406,23 +1491,16 @@
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
             
-            // Order now button
-            orderNow.addEventListener('click', function(e) {
-                e.preventDefault();
-                showNotification('سيتم توجيهك إلى صفحة الطلبات قريباً', 'success');
-                
-                // Simulate loading
-                const originalText = orderNow.innerHTML;
-                orderNow.innerHTML = 'جاري التحميل <span class="loading"></span>';
-                
-                setTimeout(() => {
-                    orderNow.innerHTML = originalText;
-                    window.location.href = 'meuleuse.html';
-                }, 1500);
-                
-                // Close mobile menu if open
-                mobileNav.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            // Add to cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    const productName = this.getAttribute('data-name');
+                    const productPrice = this.getAttribute('data-price');
+                    const productImage = this.getAttribute('data-image');
+                    
+                    addToCart(productId, productName, productPrice, productImage);
+                });
             });
             
             // Product category filtering
