@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QSV - الأدوات والمعدات الاحترافية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap');
+        
+        :root {
+            --primary: #1a365d;
+            --secondary: #d4af37;
+            --accent: #2d3748;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --gray: #718096;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 30px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 5px;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .main-nav {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        
+        .main-nav li {
+            position: relative;
+        }
+        
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: block;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        
+        .main-nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            background-color: white;
+            box-shadow: var(--shadow);
+            min-width: 220px;
+            display: none;
+            z-index: 100;
+            border-radius: 8px;
+            overflow: hidden;
+            top: 100%;
+            right: 0;
+        }
+        
+        .dropdown-menu a {
+            color: var(--dark);
+            border-bottom: 1px solid #eee;
+            padding: 12px 20px;
+        }
+        
+        .dropdown-menu a:hover {
+            background: #f5f5f5;
+            color: var(--primary);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .search-box {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .search-box:focus-within {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 2px var(--secondary);
+        }
+        
+        .search-box input {
+            background: transparent;
+            border: none;
+            padding: 12px 20px;
+            color: white;
+            width: 200px;
+        }
+        
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .search-box button {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .search-box button:hover {
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 55, 72, 0.9) 100%), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, var(--light), transparent);
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), #e6c34e);
+            color: var(--primary);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            box-shadow: none;
+            margin-right: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover .feature-icon {
+            background: var(--secondary);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: #f8fafc;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        .product-img {
+            height: 220px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-img img {
+            max-width: 80%;
+            max-height: 80%;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .product-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .product-price {
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .buy-now {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            flex: 1;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .buy-now:hover {
+            background: #2d3748;
+        }
+        
+        .view-details {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            transition: var(--transition);
+            text-align: center;
+            flex: 1;
+        }
+        
+        .view-details:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(26, 54, 93, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.2rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-card p {
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
+            color: white;
+            padding: 80px 0 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px 60px;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-info i {
+            margin-left: 12px;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 25px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-container {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .search-box input {
+                width: 150px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: rgba(255, 255, 255, 0.05);
+                width: 100%;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-outline {
+                margin-right: 0;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            .logo-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .features, .products, .services {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .features-grid, .products-grid, .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo" onclick="window.location.href='index.html'">
+                <div class="logo-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>QSV</h1>
+                    <p>الأدوات والمعدات الاحترافية</p>
+                </div>
+            </div>
+            
+            <div class="nav-container">
+                <ul class="main-nav">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li class="dropdown">
+                        <a href="#">المنتجات <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-category="power-tools">الأدوات الكهربائية</a></li>
+                            <li><a href="#" data-category="hand-tools">الأدوات اليدوية</a></li>
+                            <li><a href="#" data-category="safety">معدات السلامة</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">العلامات التجارية</a></li>
+                    <li><a href="#">العروض</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="ابحث عن المنتج...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>الحلول المتكاملة للأدوات والمعدات المهنية</h2>
+            <p>نوفر لك أفضل تشكيلة من الأدوات والمعدات الاحترافية بجودة عالمية وأسعار تنافسية</p>
+            <div class="btn-container">
+                <a href="#" class="btn btn-outline">استعرض المنتجات</a>
+                <a href="#" class="btn">اطلب الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-title">
+            <h2>لماذا تختار QSV؟</h2>
+            <p>نتميز بتقديم أفضل الحلول والخدمات لعملائنا الكرام</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>جودة عالمية</h3>
+                <p>نقدم منتجات عالية الجودة من أفضل العلامات التجارية العالمية مع ضمان الجودة والكفاءة.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h3>توصيل سريع</h3>
+                <p>خدمة توصيل سريعة لجميع أنحاء البلاد مع إمكانية التتبع والمراقبة خلال عملية التوصيل.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>دعم فني متكامل</h3>
+                <p>فريق دعم فني محترف متاح على مدار الساعة لتقديم الاستشارات الفنية والدعم اللازم.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <h3>أسعار تنافسية</h3>
+                <p>نقدم أفضل الأسعار التنافسية في السوق مع عروض وخصومات مستمرة على مجموعة واسعة من المنتجات.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="section-title">
+            <h2>منتجاتنا المميزة</h2>
+            <p>اكتشف أحدث منتجاتنا وأكثرها طلباً في السوق</p>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-badge">الأكثر مبيعاً</div>
+                <div class="product-img">
+                    <img src="https://soficlef.dz/wp-content/uploads/2021/12/PP600-13-600x600.jpg" alt="Perceuse à percussion 600W">
+                </div>
+                <div class="product-content">
+                    <h3>Perceuse à percussion 600W</h3>
+                    <p>مثقاب بقوة 600 واط مع خاصية الطرق، مثالي لأعمال الحفر في الخرسانة والخشب والمعادن</p>
+                    <span class="product-price">4,500 د.ج</span>
+                    <div class="product-actions">
+                        <a href="order.html?product=perceuse" class="buy-now">شراء الآن</a>
+                        <a href="perceuse.html" class="view-details">تفاصيل</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-badge">عرض خاص</div>
+                <div class="product-img">
+                    <img src="https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg" alt="Meuleuse d'angle 1000W">
+                </div>
+                <div class="product-content">
+                    <h3>Meuleuse d'angle 1000W</h3>
+                    <p>ماكينة جلخ زاوية بقوة 1000 واط، مثالية لقطع وتلميع المعادن والمواد الصلبة</p>
+                    <span class="product-price">3,800 د.ج</span>
+                    <div class="product-actions">
+                        <a href="order.html?product=meuleuse" class="buy-now">شراء الآن</a>
+                        <a href="meuleuse.html" class="view-details">تفاصيل</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-toolbox" style="font-size: 4rem; color: #1a365d;"></i>
+                </div>
+                <div class="product-content">
+                    <h3>صندوق أدوات متين</h3>
+                    <p>صندوق أدوات متين مع مقابض مريحة وتقسيمات داخلية منظمة لتخزين جميع أدواتك</p>
+                    <span class="product-price">1,800 د.ج</span>
+                    <div class="product-actions">
+                        <a href="order.html?product=toolbox" class="buy-now">شراء الآن</a>
+                        <a href="#" class="view-details">تفاصيل</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-badge">جديد</div>
+                <div class="product-img">
+                    <i class="fas fa-hard-hat" style="font-size: 4rem; color: #1a365d;"></i>
+                </div>
+                <div class="product-content">
+                    <h3>خوذة أمان صناعية</h3>
+                    <p>خوذة أمان عالية الجودة مع حزام تعديل مريح وفتحات تهوية للحماية المثلى</p>
+                    <span class="product-price">750 د.ج</span>
+                    <div class="product-actions">
+                        <a href="order.html?product=helmet" class="buy-now">شراء الآن</a>
+                        <a href="#" class="view-details">تفاصيل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="section-title">
+            <h2>خدماتنا</h2>
+            <p>نقدم مجموعة واسعة من الخدمات لتلبية جميع احتياجاتك</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>استشارات فنية</h3>
+                <p>نقدم استشارات فنية متخصصة لمساعدتك في اختيار المنتجات المناسبة لمشاريعك واحتياجاتك.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h3>توصيل سريع</h3>
+                <p>خدمة توصيل مضمونة وسريعة لجميع أنحاء البلاد مع إمكانية التتبع والمراقبة.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h3>توصيل للمشاريع</h3>
+                <p>خدمة توصيل مخصصة للمشاريع الكبيرة مع إمكانية التوصيل المباشر لموقع المشروع.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>عن الشركة</h3>
+                <p>QSV هي شركة رائدة في مجال توريد الأدوات والمعدات المهنية، نقدم منتجات عالية الجودة مع خدمة عملاء متميزة وضمان شامل على جميع المنتجات.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>روابط سريعة</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">الرئيسية <i class="fas fa-chevron-left"></i></a></li>
+                    <li><a href="#">المنتجات <i class="fas fa-chevron-left"></i></a></li>
+                    <li><a href="#">العلامات التجارية <i class="fas fa-chevron-left"></i></a></li>
+                    <li><a href="#">العروض <i class="fas fa-chevron-left"></i></a></li>
+                    <li><a href="#">اتصل بنا <i class="fas fa-chevron-left"></i></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>معلومات الاتصال</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> العنوان: الجزائر</p>
+                    <p><i class="fas fa-phone"></i> الهاتف: 0792090581</p>
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: fes390039@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> أوقات العمل: من الإثنين إلى السبت، 8:00 - 20:00</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>جميع الحقوق محفوظة &copy; 2023 QSV</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dropdown menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', function() {
+                    this.querySelector('.dropdown-menu').style.display = 'block';
+                });
+                
+                dropdown.addEventListener('mouseleave', function() {
+                    this.querySelector('.dropdown-menu').style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
