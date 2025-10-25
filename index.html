@@ -518,6 +518,9 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         .product-card:hover {
@@ -546,11 +549,15 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
+            padding: 15px;
         }
         
         .product-img img {
-            max-width: 80%;
-            max-height: 80%;
+            max-width: 100%;
+            max-height: 180px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
             transition: var(--transition);
         }
         
@@ -560,18 +567,26 @@
         
         .product-content {
             padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
         
         .product-content h3 {
             font-size: 1.4rem;
             margin-bottom: 10px;
             color: var(--primary);
+            min-height: 3.5em;
+            display: flex;
+            align-items: center;
         }
         
         .product-content p {
             color: var(--gray);
             margin-bottom: 20px;
             font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
         }
         
         .product-price {
@@ -586,13 +601,14 @@
             display: flex;
             justify-content: space-between;
             gap: 10px;
+            margin-top: auto;
         }
         
         .add-to-cart {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 15px;
             border-radius: 6px;
             cursor: pointer;
             transition: var(--transition);
@@ -604,6 +620,8 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            min-height: 44px;
+            font-size: 0.95rem;
         }
         
         .add-to-cart:hover {
@@ -614,7 +632,7 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: bold;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border: 1px solid var(--primary);
             border-radius: 6px;
             transition: var(--transition);
@@ -623,6 +641,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 44px;
+            font-size: 0.95rem;
         }
         
         .view-details:hover {
@@ -1236,105 +1256,139 @@
         </div>
     </section>
 
-  <!-- Products Section -->
-<section class="products" id="productsSection">
-    <div class="section-title">
-        <h2>منتجاتنا المميزة</h2>
-        <p>اكتشف أحدث منتجاتنا وأكثرها طلباً في السوق</p>
-    </div>
-    
-    <div class="products-grid">
-        <div class="product-card">
-            <div class="product-badge">الأكثر مبيعاً</div>
-            <div class="product-img">
-                <img src="https://soficlef.dz/wp-content/uploads/2021/12/PP600-13-600x600.jpg" alt="Perceuse à percussion 600W" style="object-fit: contain; padding: 15px;">
-            </div>
-            <div class="product-content">
-                <h3>Perceuse à percussion 600W</h3>
-                <p>مثقاب بقوة 600 واط مع خاصية الطرق، مثالي لأعمال الحفر في الخرسانة والخشب والمعادن</p>
-                <span class="product-price">4,500 د.ج</span>
-                <div class="product-actions">
-                    <button class="add-to-cart" data-id="1" data-name="Perceuse à percussion 600W" data-price="4500" data-image="https://soficlef.dz/wp-content/uploads/2021/12/PP600-13-600x600.jpg">
-                        <i class="fas fa-cart-plus"></i> أضف إلى السلة
-                    </button>
-                    <a href="perceuse.html" class="view-details">تفاصيل</a>
-                </div>
-            </div>
+    <!-- Products Section -->
+    <section class="products" id="productsSection">
+        <div class="section-title">
+            <h2>منتجاتنا المميزة</h2>
+            <p>اكتشف أحدث منتجاتنا وأكثرها طلباً في السوق</p>
         </div>
         
-        <div class="product-card">
-            <div class="product-badge">عرض خاص</div>
-            <div class="product-img">
-                <img src="https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg" alt="Meuleuse d'angle 1000W" style="object-fit: contain; padding: 15px;">
-            </div>
-            <div class="product-content">
-                <h3>Meuleuse d'angle 1000W</h3>
-                <p>ماكينة جلخ زاوية بقوة 1000 واط، مثالية لقطع وتلميع المعادن والمواد الصلبة</p>
-                <span class="product-price">3,800 د.ج</span>
-                <div class="product-actions">
-                    <button class="add-to-cart" data-id="2" data-name="Meuleuse d'angle 1000W" data-price="3800" data-image="https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg">
-                        <i class="fas fa-cart-plus"></i> أضف إلى السلة
-                    </button>
-                    <a href="meuleuse.html" class="view-details">تفاصيل</a>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-badge">الأكثر مبيعاً</div>
+                <div class="product-img">
+                    <img src="https://soficlef.dz/wp-content/uploads/2021/12/PP600-13-600x600.jpg" alt="Perceuse à percussion 600W">
+                </div>
+                <div class="product-content">
+                    <h3>Perceuse à percussion 600W</h3>
+                    <p>مثقاب بقوة 600 واط مع خاصية الطرق، مثالي لأعمال الحفر في الخرسانة والخشب والمعادن</p>
+                    <span class="product-price">4,500 د.ج</span>
+                    <div class="product-actions">
+                        <button class="add-to-cart" data-id="1" data-name="Perceuse à percussion 600W" data-price="4500" data-image="https://soficlef.dz/wp-content/uploads/2021/12/PP600-13-600x600.jpg">
+                            <i class="fas fa-cart-plus"></i> أضف إلى السلة
+                        </button>
+                        <a href="perceuse.html" class="view-details">تفاصيل</a>
+                    </div>
                 </div>
             </div>
+            
+            <div class="product-card">
+                <div class="product-badge">عرض خاص</div>
+                <div class="product-img">
+                    <img src="https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg" alt="Meuleuse d'angle 1000W">
+                </div>
+                <div class="product-content">
+                    <h3>Meuleuse d'angle 1000W</h3>
+                    <p>ماكينة جلخ زاوية بقوة 1000 واط، مثالية لقطع وتلميع المعادن والمواد الصلبة</p>
+                    <span class="product-price">3,800 د.ج</span>
+                    <div class="product-actions">
+                        <button class="add-to-cart" data-id="2" data-name="Meuleuse d'angle 1000W" data-price="3800" data-image="https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg">
+                            <i class="fas fa-cart-plus"></i> أضف إلى السلة
+                        </button>
+                        <a href="meuleuse.html" class="view-details">تفاصيل</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-badge">جديد</div>
+                <div class="product-img">
+                    <img src="https://www.outillage-avenue.com/lib/picts/prod1/50006.jpg" alt="SCHNEIDER Aspirateur 50 L 1600 W">
+                </div>
+                <div class="product-content">
+                    <h3>SCHNEIDER Aspirateur 50 L 1600 W</h3>
+                    <p>مكنسة صناعية بخزان 50 لتر بقوة 1600 واط، مثالية لامتصاص الغبار والرماد والشوائب الكبيرة في الورش</p>
+                    <span class="product-price">25,000 د.ج</span>
+                    <div class="product-actions">
+                        <button class="add-to-cart" data-id="5" data-name="SCHNEIDER Aspirateur 50 L 1600 W" data-price="25000" data-image="https://www.outillage-avenue.com/lib/picts/prod1/50006.jpg">
+                            <i class="fas fa-cart-plus"></i> أضف إلى السلة
+                        </button>
+                        <a href="schneider.html" class="view-details">تفاصيل</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge">جديد</div>
+                <div class="product-img">
+                    <img src="https://www.soficlef.com/wp-content/uploads/2025/03/CC-60.jpg" alt="SOFICLEF Tile Cutter 600mm">
+                </div>
+                <div class="product-content">
+                    <h3>SOFICLEF Tile Cutter 600mm</h3>
+                    <p>ماكينة قطع السيراميك بسعة قطع 600 مم، تدعم القطع المستقيم والقطري وقطع الدوائر والفتحات</p>
+                    <span class="product-price">18,000 د.ج</span>
+                    <div class="product-actions">
+                        <button class="add-to-cart" data-id="6" data-name="SOFICLEF Tile Cutter 600mm" data-price="18000" data-image="https://www.soficlef.com/wp-content/uploads/2025/03/CC-60.jpg">
+                            <i class="fas fa-cart-plus"></i> أضف إلى السلة
+                        </button>
+                        <a href="cutter.html" class="view-details">تفاصيل</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge">جديد</div>
+                <div class="product-img">
+                    <img src="https://th.bing.com/th/id/OIP.VUpMas3Ao3sJfgVohi2fLwHaHa?rs=1&pid=ImgDetMain" alt="SOFICLEF BRT-80 80L">
+                </div>
+                <div class="product-content">
+                    <h3>SOFICLEF BRT-80 80L</h3>
+                    <p>حوض عمل بسعة 80 لتر، يحمل حتى 150 كغ، مصنوع من الفولاذ المجلفن بمقاومة عالية للتآكل</p>
+                    <span class="product-price">12,000 د.ج</span>
+                    <div class="product-actions">
+                        <button class="add-to-cart" data-id="7" data-name="SOFICLEF BRT-80 80L" data-price="12000" data-image="https://th.bing.com/th/id/OIP.VUpMas3Ao3sJfgVohi2fLwHaHa?rs=1&pid=ImgDetMain">
+                            <i class="fas fa-cart-plus"></i> أضف إلى السلة
+                        </button>
+                        <a href="brt80.html" class="view-details">تفاصيل</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="section-title">
+            <h2>خدماتنا</h2>
+            <p>نقدم مجموعة واسعة من الخدمات لتلبية جميع احتياجاتك</p>
         </div>
         
-        <div class="product-card">
-            <div class="product-badge">جديد</div>
-            <div class="product-img">
-                <img src="https://www.outillage-avenue.com/lib/picts/prod1/50006.jpg" alt="SCHNEIDER Aspirateur 50 L 1600 W" style="object-fit: contain; padding: 15px; max-height: 180px;">
-            </div>
-            <div class="product-content">
-                <h3>SCHNEIDER Aspirateur 50 L 1600 W</h3>
-                <p>مكنسة صناعية بخزان 50 لتر بقوة 1600 واط، مثالية لامتصاص الغبار والرماد والشوائب الكبيرة في الورش</p>
-                <span class="product-price">25,000 د.ج</span>
-                <div class="product-actions">
-                    <button class="add-to-cart" data-id="5" data-name="SCHNEIDER Aspirateur 50 L 1600 W" data-price="25000" data-image="https://www.outillage-avenue.com/lib/picts/prod1/50006.jpg">
-                        <i class="fas fa-cart-plus"></i> أضف إلى السلة
-                    </button>
-                    <a href="schneider.html" class="view-details">تفاصيل</a>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
                 </div>
+                <h3>استشارات فنية</h3>
+                <p>نقدم استشارات فنية متخصصة لمساعدتك في اختيار المنتجات المناسبة لمشاريعك واحتياجاتك.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h3>توصيل سريع</h3>
+                <p>خدمة توصيل مضمونة وسريعة لجميع أنحاء البلاد مع إمكانية التتبع والمراقبة.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <h3>توصيل للمشاريع</h3>
+                <p>خدمة توصيل مخصصة للمشاريع الكبيرة مع إمكانية التوصيل المباشر لموقع المشروع.</p>
             </div>
         </div>
-
-        <div class="product-card">
-            <div class="product-badge">جديد</div>
-            <div class="product-img">
-                <img src="https://www.soficlef.com/wp-content/uploads/2025/03/CC-60.jpg" alt="SOFICLEF Tile Cutter 600mm" style="object-fit: contain; padding: 15px; max-height: 180px;">
-            </div>
-            <div class="product-content">
-                <h3>SOFICLEF Tile Cutter 600mm</h3>
-                <p>ماكينة قطع السيراميك بسعة قطع 600 مم، تدعم القطع المستقيم والقطري وقطع الدوائر والفتحات</p>
-                <span class="product-price">18,000 د.ج</span>
-                <div class="product-actions">
-                    <button class="add-to-cart" data-id="6" data-name="SOFICLEF Tile Cutter 600mm" data-price="18000" data-image="https://www.soficlef.com/wp-content/uploads/2025/03/CC-60.jpg">
-                        <i class="fas fa-cart-plus"></i> أضف إلى السلة
-                    </button>
-                    <a href="cutter.html" class="view-details">تفاصيل</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-badge">جديد</div>
-            <div class="product-img">
-                <img src="https://th.bing.com/th/id/OIP.VUpMas3Ao3sJfgVohi2fLwHaHa?rs=1&pid=ImgDetMain" alt="SOFICLEF BRT-80 80L" style="object-fit: contain; padding: 15px; max-height: 180px;">
-            </div>
-            <div class="product-content">
-                <h3>SOFICLEF BRT-80 80L</h3>
-                <p>حوض عمل بسعة 80 لتر، يحمل حتى 150 كغ، مصنوع من الفولاذ المجلفن بمقاومة عالية للتآكل</p>
-                <span class="product-price">12,000 د.ج</span>
-                <div class="product-actions">
-                    <button class="add-to-cart" data-id="7" data-name="SOFICLEF BRT-80 80L" data-price="12000" data-image="https://th.bing.com/th/id/OIP.VUpMas3Ao3sJfgVohi2fLwHaHa?rs=1&pid=ImgDetMain">
-                        <i class="fas fa-cart-plus"></i> أضف إلى السلة
-                    </button>
-                    <a href="brt80.html" class="view-details">تفاصيل</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer>
