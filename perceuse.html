@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meuleuse d'angle 1000W - QSV</title>
+    <title>Perceuse à percussion 600W - QSV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap');
@@ -274,6 +274,24 @@
             color: var(--gray);
             line-height: 1.8;
             font-size: 1.1rem;
+        }
+        
+        .product-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: #f8fafc;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .meta-item strong {
+            color: var(--primary);
         }
         
         .specifications {
@@ -698,6 +716,11 @@
             .action-buttons {
                 flex-direction: column;
             }
+            
+            .product-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -807,14 +830,24 @@
             <div class="product-detail">
                 <div class="product-images">
                     <div class="main-image">
-                        <img src="https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg" alt="Meuleuse d'angle 1000W">
+                        <img src="https://soficlef.dz/wp-content/uploads/2021/12/PP600-13.jpg" alt="Perceuse à percussion 600W">
                     </div>
                 </div>
                 <div class="product-info">
-                    <h1>Meuleuse d'angle 1000W</h1>
-                    <span class="product-price-large">3,800 د.ج</span>
+                    <h1>Perceuse à percussion 600W</h1>
+                    <span class="product-price-large">4,500 د.ج</span>
+                    
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <strong>SKU:</strong> PP600-13
+                        </div>
+                        <div class="meta-item">
+                            <strong>الفئة:</strong> OUTILLAGE, EQUIPEMENT, Perceuse à percussion
+                        </div>
+                    </div>
+                    
                     <p class="product-description">
-                        ماكينة جلخ زاوية بقوة 1000 واط، مثالية لقطع وتلميع المعادن والمواد الصلبة. تتميز بمحرك قوي يتحمل العمل الشاق، مع تصميم مريح يسهل الاستخدام لفترات طويلة. مثالية للاستخدام في ورش العمل والمواقع الإنشائية.
+                        مثقاب بقوة 600 واط مع خاصية الطرق، مثالي لأعمال الحفر في الخرسانة والخشب والمعادن. يتميز بتصميم مريح يسهل الاستخدام لفترات طويلة، مع محرك قوي يوفر أداءً متميزاً في جميع أنواع الحفر. مثالي للاستخدام في ورش العمل والمواقع الإنشائية.
                     </p>
                     
                     <div class="specifications">
@@ -826,19 +859,23 @@
                             </li>
                             <li>
                                 <span class="spec-name">القدرة:</span>
-                                <span class="spec-value">1000 W</span>
+                                <span class="spec-value">600 W</span>
                             </li>
                             <li>
                                 <span class="spec-name">السرعة بدون حمل:</span>
-                                <span class="spec-value">11000 دورة/دقيقة</span>
+                                <span class="spec-value">0-2800 دورة/دقيقة</span>
                             </li>
                             <li>
-                                <span class="spec-name">قطر القرص:</span>
-                                <span class="spec-value">115 ملم</span>
+                                <span class="spec-name">طاقة الطرق:</span>
+                                <span class="spec-value">48000 ضربة/دقيقة</span>
+                            </li>
+                            <li>
+                                <span class="spec-name">سعة الحفر:</span>
+                                <span class="spec-value">الخرسانة: 13 ملم، الفولاذ: 10 ملم، الخشب: 25 ملم</span>
                             </li>
                             <li>
                                 <span class="spec-name">الوزن:</span>
-                                <span class="spec-value">1.6 كغ</span>
+                                <span class="spec-value">1.7 كغ</span>
                             </li>
                         </ul>
                     </div>
@@ -860,7 +897,7 @@
                     <div class="cart-totals">
                         <div class="total-row">
                             <span>المجموع الجزئي:</span>
-                            <span id="subtotal">3,800 د.ج</span>
+                            <span id="subtotal">4,500 د.ج</span>
                         </div>
                         <div class="total-row">
                             <span>تكاليف الشحن:</span>
@@ -868,7 +905,7 @@
                         </div>
                         <div class="total-row final">
                             <span>المجموع الكلي:</span>
-                            <span id="total">4,300 د.ج</span>
+                            <span id="total">5,000 د.ج</span>
                         </div>
                     </div>
                 </div>
@@ -905,24 +942,24 @@
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>قوة فائقة</h3>
-                    <p>محرك بقوة 1000 واط يوفر أداءً متميزاً في القطع والتلميع</p>
+                    <h3>قوة متوسطة</h3>
+                    <p>محرك بقوة 600 واط يوفر أداءً متوازناً بين القوة واستهلاك الطاقة</p>
                 </div>
                 
                 <div class="feature-item">
                     <div class="feature-icon">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="fas fa-hammer"></i>
                     </div>
-                    <h3>سرعة عالية</h3>
-                    <p>سرعة دوران تصل إلى 11000 دورة في الدقيقة للقطع السريع والدقيق</p>
+                    <h3>خاصية الطرق</h3>
+                    <p>تقنية الطرق بسرعة 48000 ضربة/دقيقة للحفر في الخرسانة والمواد الصلبة</p>
                 </div>
                 
                 <div class="feature-item">
                     <div class="feature-icon">
-                        <i class="fas fa-weight"></i>
+                        <i class="fas fa-cogs"></i>
                     </div>
-                    <h3>خفيفة الوزن</h3>
-                    <p>تصميم خفيف الوزن (1.6 كغ) يسهل الاستخدام لفترات طويلة</p>
+                    <h3>سرعة متغيرة</h3>
+                    <p>تحكم في السرعة من 0 إلى 2800 دورة/دقيقة للسيطرة على عملية الحفر</p>
                 </div>
                 
                 <div class="feature-item">
@@ -930,7 +967,7 @@
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>حماية متكاملة</h3>
-                    <p>نظام حماية من السخونة الزائدة وغطاء حماية للقرص</p>
+                    <p>نظام حماية من السخونة الزائدة وتصميم مريح للاستخدام لفترات طويلة</p>
                 </div>
             </div>
         </div>
@@ -979,10 +1016,12 @@
     <script>
         // بيانات المنتج
         const product = {
-            id: '2',
-            name: 'Meuleuse d\'angle 1000W',
-            price: 3800,
-            image: 'https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg'
+            id: '1',
+            name: 'Perceuse à percussion 600W',
+            price: 4500,
+            image: 'https://soficlef.dz/wp-content/uploads/2021/12/PP600-13.jpg',
+            sku: 'PP600-13',
+            category: 'OUTILLAGE, EQUIPEMENT, Perceuse à percussion'
         };
         
         // Shopping Cart Functions
