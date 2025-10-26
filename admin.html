@@ -844,8 +844,8 @@
                                 <th>رقم الطلب</th>
                                 <th>العميل</th>
                                 <th>تاريخ الطلب</th>
-                                <th>المنتج</th>
-                                <th>الكمية</th>
+                                <th>المنتجات</th>
+                                <th>الكمية الإجمالية</th>
                                 <th>المبلغ</th>
                                 <th>الحالة</th>
                                 <th>الإجراءات</th>
@@ -853,15 +853,6 @@
                         </thead>
                         <tbody id="orders-body">
                             <!-- سيتم ملؤها ديناميكيًا -->
-                            <tr>
-                                <td colspan="8">
-                                    <div class="empty-state">
-                                        <i class="fas fa-inbox"></i>
-                                        <p>لا توجد طلبات حتى الآن</p>
-                                        <p>سيظهر هنا أي طلبات جديدة من العملاء</p>
-                                    </div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -936,13 +927,7 @@
         // عند تحميل الصفحة
         document.addEventListener('DOMContentLoaded', function() {
             // تحميل الطلبات من localStorage
-            let orders = JSON.parse(localStorage.getItem('qsv_orders')) || [];
-            
-            // عرض الطلبات في الجدول
-            renderOrders(orders);
-            
-            // تحديث الإحصائيات
-            updateStatistics(orders);
+            loadOrders();
             
             // البحث والتصفية
             document.getElementById('search-btn').addEventListener('click', function() {
@@ -954,16 +939,18 @@
                 exportOrders();
             });
             
-            // تحديث تلقائي كل 2 ثانية للتحقق من الطلبات الجديدة
+            // تحديث تلقائي كل 3 ثوان للتحقق من الطلبات الجديدة
             setInterval(function() {
-                const currentOrders = JSON.parse(localStorage.getItem('qsv_orders')) || [];
-                if (currentOrders.length !== orders.length) {
-                    orders = currentOrders;
-                    renderOrders(orders);
-                    updateStatistics(orders);
-                }
-            }, 2000);
+                loadOrders();
+            }, 3000);
         });
+
+        // تحميل وعرض الطلبات
+        function loadOrders() {
+            const orders = JSON.parse(localStorage.getItem('qsv_orders')) || [];
+            renderOrders(orders);
+            updateStatistics(orders);
+        }
 
         // عرض الطلبات في الجدول
         function renderOrders(orders) {
@@ -990,6 +977,12 @@
             const sortedOrders = orders.sort((a, b) => new Date(b.orderDate) - new Date(a.orderDate));
             
             sortedOrders.forEach(order => {
+                // حساب إجمالي الكمية
+                let totalQuantity = 0;
+                Object.values(order.items).forEach(item => {
+                    totalQuantity += item.quantity;
+                });
+                
                 // تحديد فئة الحالة
                 let statusClass = '';
                 let statusText = '';
@@ -1012,14 +1005,20 @@
                         statusText = 'جديد';
                 }
 
+                // إنشاء قائمة المنتجات
+                let productsList = '';
+                Object.values(order.items).forEach(item => {
+                    productsList += `<div>${item.name} (${item.quantity})</div>`;
+                });
+
                 const orderRow = document.createElement('tr');
                 orderRow.innerHTML = `
                     <td>${order.orderId || ''}</td>
                     <td>${escapeHtml(order.customer.firstName + ' ' + order.customer.lastName)}</td>
                     <td>${new Date(order.orderDate).toLocaleDateString('ar-EG')}</td>
-                    <td>${escapeHtml(order.product.name)}</td>
-                    <td>${order.product.quantity}</td>
-                    <td>${order.total}</td>
+                    <td>${productsList}</td>
+                    <td>${totalQuantity}</td>
+                    <td>${order.total ? order.total.toLocaleString() + ' د.ج' : '0 د.ج'}</td>
                     <td><span class="status ${statusClass}">${statusText}</span></td>
                     <td>
                         <button class="action-btn view-btn" onclick="viewOrder('${order.orderId}')">
@@ -1074,6 +1073,18 @@
                         statusText = 'جديد';
                 }
 
+                // إنشاء قائمة المنتجات
+                let productsList = '';
+                Object.values(order.items).forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    productsList += `
+                        <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee;">
+                            <span>${escapeHtml(item.name)}</span>
+                            <span>${item.quantity} × ${item.price.toLocaleString()} د.ج = ${itemTotal.toLocaleString()} د.ج</span>
+                        </div>
+                    `;
+                });
+
                 document.getElementById('modal-body').innerHTML = `
                     <div class="order-details">
                         <div>
@@ -1096,17 +1107,15 @@
                         
                         <div>
                             <div class="detail-group">
-                                <h4>تفاصيل المنتج</h4>
-                                <p>المنتج: ${escapeHtml(order.product.name)}</p>
-                                <p>الكمية: ${order.product.quantity}</p>
-                                <p>سعر الوحدة: ${order.product.price} د.ج</p>
+                                <h4>تفاصيل المنتجات</h4>
+                                ${productsList}
                             </div>
                             
                             <div class="detail-group">
                                 <h4>الفاتورة</h4>
-                                <p>المجموع الجزئي: ${order.subtotal}</p>
-                                <p>تكاليف الشحن: ${order.shipping}</p>
-                                <p><strong>المجموع الكلي: ${order.total}</strong></p>
+                                <p>المجموع الجزئي: ${order.subtotal ? order.subtotal.toLocaleString() + ' د.ج' : '0 د.ج'}</p>
+                                <p>تكاليف الشحن: ${order.shipping ? order.shipping.toLocaleString() + ' د.ج' : '0 د.ج'}</p>
+                                <p><strong>المجموع الكلي: ${order.total ? order.total.toLocaleString() + ' د.ج' : '0 د.ج'}</strong></p>
                             </div>
                         </div>
                     </div>
@@ -1139,8 +1148,7 @@
                 if (newStatus && ['new', 'processing', 'completed'].includes(newStatus)) {
                     order.status = newStatus;
                     localStorage.setItem('qsv_orders', JSON.stringify(orders));
-                    renderOrders(orders);
-                    updateStatistics(orders);
+                    loadOrders();
                     alert('تم تحديث حالة الطلب بنجاح');
                     closeOrderModal();
                 }
@@ -1154,8 +1162,7 @@
                 const updatedOrders = orders.filter(o => o.orderId !== orderId);
                 
                 localStorage.setItem('qsv_orders', JSON.stringify(updatedOrders));
-                renderOrders(updatedOrders);
-                updateStatistics(updatedOrders);
+                loadOrders();
                 alert('تم حذف الطلب بنجاح');
                 closeOrderModal();
             }
@@ -1200,16 +1207,31 @@
         }
         
         function convertToCSV(orders) {
-            const headers = ['رقم الطلب', 'العميل', 'التاريخ', 'المنتج', 'الكمية', 'المبلغ', 'الحالة'];
-            const rows = orders.map(order => [
-                order.orderId,
-                order.customer.firstName + ' ' + order.customer.lastName,
-                new Date(order.orderDate).toLocaleDateString('ar-EG'),
-                order.product.name,
-                order.product.quantity,
-                order.total,
-                order.status === 'new' ? 'جديد' : order.status === 'processing' ? 'قيد المعالجة' : 'مكتمل'
-            ]);
+            const headers = ['رقم الطلب', 'العميل', 'التاريخ', 'المنتجات', 'الكمية الإجمالية', 'المبلغ', 'الحالة'];
+            const rows = orders.map(order => {
+                // حساب إجمالي الكمية
+                let totalQuantity = 0;
+                Object.values(order.items).forEach(item => {
+                    totalQuantity += item.quantity;
+                });
+                
+                // إنشاء نص المنتجات
+                let productsText = '';
+                Object.values(order.items).forEach(item => {
+                    productsText += `${item.name} (${item.quantity})، `;
+                });
+                productsText = productsText.slice(0, -2); // إزالة الفاصلة الأخيرة
+                
+                return [
+                    order.orderId,
+                    order.customer.firstName + ' ' + order.customer.lastName,
+                    new Date(order.orderDate).toLocaleDateString('ar-EG'),
+                    productsText,
+                    totalQuantity,
+                    order.total ? order.total : '0',
+                    order.status === 'new' ? 'جديد' : order.status === 'processing' ? 'قيد المعالجة' : 'مكتمل'
+                ];
+            });
             
             return [headers, ...rows].map(row => row.join(',')).join('\n');
         }
