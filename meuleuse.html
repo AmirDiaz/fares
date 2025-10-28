@@ -31,9 +31,9 @@
             color: var(--dark);
             line-height: 1.7;
         }
-        
-        /* Fixed Header Styles */
-        header {
+
+        /* ===== REFACTORED HEADER STYLES ===== */
+        .main-header {
             background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
             color: white;
             position: sticky;
@@ -41,8 +41,8 @@
             z-index: 1000;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
-        
-        .header-container {
+
+        .header-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,15 +50,17 @@
             margin: 0 auto;
             padding: 10px 20px;
         }
-        
-        .logo {
+
+        /* Logo Styles */
+        .brand-logo {
             display: flex;
             align-items: center;
             gap: 10px;
             cursor: pointer;
+            flex-shrink: 0;
         }
-        
-        .logo-icon {
+
+        .brand-icon {
             width: 45px;
             height: 45px;
             background: var(--secondary);
@@ -70,65 +72,105 @@
             color: var(--primary);
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
-        
-        .logo-text {
+
+        .brand-text {
             display: flex;
             flex-direction: column;
         }
-        
-        .logo-text h1 {
+
+        .brand-text h1 {
             font-size: 1.8rem;
             font-weight: 900;
             line-height: 1.2;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             letter-spacing: 1px;
         }
-        
-        .logo-text p {
+
+        .brand-text p {
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.8);
             margin-top: 3px;
         }
-        
-        .nav-container {
+
+        /* Navigation Styles */
+        .main-navigation {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
-        
-        .main-nav {
+
+        .nav-menu {
             display: flex;
             list-style: none;
-            gap: 3px;
+            gap: 5px;
         }
-        
-        .main-nav li {
+
+        .nav-item {
             position: relative;
         }
-        
-        .main-nav a {
+
+        .nav-link {
             color: white;
             text-decoration: none;
-            padding: 8px 15px;
+            padding: 8px 16px;
             display: block;
             border-radius: 6px;
             transition: var(--transition);
             font-weight: 600;
             font-size: 0.95rem;
         }
-        
-        .main-nav a:hover {
+
+        .nav-link:hover {
             background: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
         }
-        
-        .header-actions {
+
+        /* Header Actions */
+        .header-tools {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
-        
-        .cart-icon {
+
+        .search-container {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .search-container:focus-within {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 2px var(--secondary);
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            padding: 8px 15px;
+            color: white;
+            width: 150px;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-button {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-button:hover {
+            color: var(--secondary);
+        }
+
+        .cart-container {
             position: relative;
             font-size: 1.3rem;
             color: white;
@@ -137,8 +179,8 @@
             padding: 8px;
             border-radius: 50%;
         }
-        
-        .cart-count {
+
+        .cart-badge {
             position: absolute;
             top: 3px;
             left: 3px;
@@ -153,46 +195,121 @@
             font-size: 0.7rem;
             font-weight: bold;
         }
-        
-        .search-box {
-            display: flex;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-        
-        .search-box:focus-within {
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 0 2px var(--secondary);
-        }
-        
-        .search-box input {
-            background: transparent;
-            border: none;
-            padding: 8px 15px;
-            color: white;
-            width: 150px;
-        }
-        
-        .search-box input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .search-box button {
-            background: transparent;
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
             border: none;
             color: white;
-            padding: 8px 12px;
+            font-size: 1.3rem;
             cursor: pointer;
-            transition: var(--transition);
+            padding: 5px;
         }
-        
-        .search-box button:hover {
-            color: var(--secondary);
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-image {
+                height: 300px;
+            }
         }
-        
-        /* Product Page Styles */
+
+        @media (max-width: 768px) {
+            .header-wrapper {
+                padding: 8px 15px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .search-input {
+                width: 120px;
+            }
+
+            .product-info h1 {
+                font-size: 2rem;
+            }
+
+            .product-price-large {
+                font-size: 1.8rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-wrapper {
+                padding: 6px 12px;
+            }
+
+            .brand-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .brand-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .search-input {
+                width: 100px;
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+
+            .search-button {
+                padding: 6px 8px;
+            }
+
+            .brand-text p {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-container {
+                display: none;
+            }
+
+            .brand-text h1 {
+                font-size: 1.3rem;
+            }
+
+            .brand-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header-wrapper {
+                padding: 5px 8px;
+            }
+
+            .brand-text h1 {
+                font-size: 1.2rem;
+            }
+
+            .brand-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ===== EXISTING PRODUCT PAGE STYLES ===== */
         .product-page {
             padding: 70px 0;
             background: white;
@@ -656,252 +773,48 @@
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        /* Responsive - Fixed */
-        @media (max-width: 992px) {
-            .product-detail {
-                grid-template-columns: 1fr;
-            }
-            
-            .main-image {
-                height: 300px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: row;
-                gap: 15px;
-                padding: 8px 15px;
-            }
-            
-            .nav-container {
-                width: auto;
-                justify-content: flex-end;
-            }
-            
-            .main-nav {
-                display: none;
-            }
-            
-            .search-box input {
-                width: 120px;
-            }
-            
-            .product-info h1 {
-                font-size: 2rem;
-            }
-            
-            .product-price-large {
-                font-size: 1.8rem;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
-            }
-            
-            .header-actions {
-                gap: 8px;
-            }
-            
-            .search-box input {
-                width: 100px;
-                padding: 6px 10px;
-            }
-            
-            .search-box button {
-                padding: 6px 8px;
-            }
-            
-            .cart-icon {
-                font-size: 1.1rem;
-                padding: 6px;
-            }
-            
-            .cart-count {
-                width: 16px;
-                height: 16px;
-                font-size: 0.7rem;
-                top: 2px;
-                left: 2px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .header-container {
-                padding: 6px 12px;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.5rem;
-            }
-            
-            .logo-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-            
-            .search-box input {
-                width: 80px;
-                padding: 5px 8px;
-                font-size: 0.8rem;
-            }
-            
-            .search-box button {
-                padding: 5px 7px;
-                font-size: 0.8rem;
-            }
-            
-            .cart-icon {
-                font-size: 1rem;
-                padding: 5px;
-            }
-            
-            .add-to-cart-section {
-                padding: 20px;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .logo-text p {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .product-page {
-                padding: 60px 0;
-            }
-            
-            .product-info h1 {
-                font-size: 1.8rem;
-            }
-            
-            .product-price-large {
-                font-size: 1.6rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .cart-summary {
-                padding: 15px;
-            }
-            
-            .quantity-control {
-                justify-content: center;
-            }
-            
-            .header-container {
-                padding: 5px 10px;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.3rem;
-            }
-            
-            .logo-icon {
-                width: 30px;
-                height: 30px;
-                font-size: 0.9rem;
-            }
-            
-            .search-box {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .header-container {
-                padding: 5px 8px;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.2rem;
-            }
-            
-            .logo-icon {
-                width: 28px;
-                height: 28px;
-                font-size: 0.8rem;
-            }
-            
-            .cart-icon {
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.3rem;
-            cursor: pointer;
-            padding: 5px;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo" onclick="window.location.href='index.html'">
-                <div class="logo-icon">
+    <!-- Refactored Header -->
+    <header class="main-header">
+        <div class="header-wrapper">
+            <div class="brand-logo" onclick="window.location.href='index.html'">
+                <div class="brand-icon">
                     <i class="fas fa-tools"></i>
                 </div>
-                <div class="logo-text">
+                <div class="brand-text">
                     <h1>QSV</h1>
                     <p>الأدوات والمعدات الاحترافية</p>
                 </div>
             </div>
             
-            <div class="nav-container">
-                <ul class="main-nav">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="index.html#productsSection">المنتجات</a></li>
-                    <li><a href="#">العلامات التجارية</a></li>
-                    <li><a href="#">اتصل بنا</a></li>
+            <nav class="main-navigation">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li class="nav-item"><a href="index.html#productsSection" class="nav-link">المنتجات</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">العلامات التجارية</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">اتصل بنا</a></li>
                 </ul>
                 
-                <div class="header-actions">
-                    <div class="search-box">
-                        <input type="text" placeholder="ابحث عن المنتج...">
-                        <button><i class="fas fa-search"></i></button>
+                <div class="header-tools">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="ابحث عن المنتج...">
+                        <button class="search-button"><i class="fas fa-search"></i></button>
                     </div>
-                    <div class="cart-icon" onclick="window.location.href='cart.html'">
+                    <div class="cart-container" onclick="window.location.href='cart.html'">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count" id="cart-count">0</span>
+                        <span class="cart-badge" id="cart-count">0</span>
                     </div>
-                    <button class="mobile-menu-btn">
+                    <button class="mobile-menu-toggle">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
-            </div>
+            </nav>
         </div>
     </header>
 
-    <!-- Product Page -->
+    <!-- Rest of the product page content remains the same -->
     <section class="product-page">
         <div class="container">
             <a href="index.html" class="back-to-products"><i class="fas fa-arrow-right"></i> العودة إلى المنتجات</a>
