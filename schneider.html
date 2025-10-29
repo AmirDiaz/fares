@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meuleuse d'angle 1000W - QSV</title>
+    <title>SCHNEIDER Aspirateur 50 L 1600 W - QSV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap');
@@ -30,9 +30,11 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.7;
+            width: 100%;
+            overflow-x: hidden;
         }
 
-        /* ===== SIMPLIFIED HEADER ===== */
+        /* ===== FULL WIDTH HEADER ===== */
         .site-header {
             background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
             color: white;
@@ -41,15 +43,16 @@
             z-index: 1000;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             padding: 10px 0;
+            width: 100%;
         }
 
         .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         /* Logo */
@@ -180,75 +183,17 @@
             padding: 5px;
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 768px) {
-            .header-inner {
-                padding: 0 15px;
-            }
-
-            .nav-list {
-                display: none;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .search-input {
-                width: 120px;
-            }
-
-            .logo-text h1 {
-                font-size: 1.5rem;
-            }
-
-            .logo-circle {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .header-inner {
-                padding: 0 12px;
-            }
-
-            .search-input {
-                width: 100px;
-            }
-
-            .logo-text p {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .search-wrapper {
-                display: none;
-            }
-
-            .logo-text h1 {
-                font-size: 1.3rem;
-            }
-
-            .logo-circle {
-                width: 30px;
-                height: 30px;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* ===== PRODUCT PAGE STYLES ===== */
+        /* ===== FULL WIDTH PRODUCT PAGE ===== */
         .product-page {
             padding: 70px 0;
             background: white;
+            width: 100%;
         }
         
         .container {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
         .back-link {
@@ -271,14 +216,16 @@
         .product-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 30px;
             margin-bottom: 50px;
+            width: 100%;
         }
         
         .product-gallery {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            width: 100%;
         }
         
         .product-image {
@@ -290,17 +237,21 @@
             justify-content: center;
             height: 400px;
             box-shadow: var(--shadow);
+            width: 100%;
         }
         
         .product-image img {
             max-width: 80%;
             max-height: 80%;
+            width: auto;
+            height: auto;
         }
         
         .product-header h1 {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 20px;
+            width: 100%;
         }
         
         .product-price {
@@ -316,6 +267,7 @@
             color: var(--gray);
             line-height: 1.8;
             font-size: 1.1rem;
+            width: 100%;
         }
         
         .specs-box {
@@ -324,6 +276,7 @@
             padding: 25px;
             border-radius: 12px;
             box-shadow: var(--shadow);
+            width: 100%;
         }
         
         .specs-box h3 {
@@ -336,12 +289,14 @@
         
         .specs-list {
             list-style: none;
+            width: 100%;
         }
         
         .specs-item {
             padding: 12px 0;
             border-bottom: 1px solid #e2e8f0;
             display: flex;
+            width: 100%;
         }
         
         .specs-item:last-child {
@@ -352,10 +307,12 @@
             font-weight: bold;
             color: var(--primary);
             width: 200px;
+            flex-shrink: 0;
         }
         
         .spec-value {
             color: var(--gray);
+            flex: 1;
         }
         
         /* Cart Section */
@@ -365,6 +322,7 @@
             padding: 30px;
             box-shadow: var(--shadow);
             margin-bottom: 50px;
+            width: 100%;
         }
         
         .cart-section h2 {
@@ -373,6 +331,7 @@
             margin-bottom: 25px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--secondary);
+            width: 100%;
         }
         
         .cart-summary {
@@ -380,6 +339,7 @@
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 25px;
+            width: 100%;
         }
         
         .cart-summary h3 {
@@ -393,6 +353,7 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 15px;
+            width: 100%;
         }
         
         .qty-btn {
@@ -424,6 +385,7 @@
             margin-top: 15px;
             padding-top: 15px;
             border-top: 2px solid #e2e8f0;
+            width: 100%;
         }
         
         .total-line {
@@ -431,6 +393,7 @@
             justify-content: space-between;
             margin-bottom: 8px;
             padding: 8px 0;
+            width: 100%;
         }
         
         .total-line.final {
@@ -455,6 +418,7 @@
             cursor: pointer;
             text-align: center;
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            width: 100%;
         }
         
         .action-btn:hover {
@@ -485,6 +449,7 @@
             display: flex;
             gap: 15px;
             margin-top: 20px;
+            width: 100%;
         }
         
         .action-group .action-btn {
@@ -499,6 +464,7 @@
             border-radius: 8px;
             margin-top: 20px;
             border: 1px solid #c8e6c9;
+            width: 100%;
         }
         
         .success-icon {
@@ -516,11 +482,13 @@
         .features-section {
             padding: 60px 0;
             background: #f8fafc;
+            width: 100%;
         }
         
         .section-heading {
             text-align: center;
             margin-bottom: 50px;
+            width: 100%;
         }
         
         .section-heading h2 {
@@ -534,6 +502,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            width: 100%;
         }
         
         .feature-card {
@@ -542,6 +511,7 @@
             padding: 30px;
             box-shadow: var(--shadow);
             text-align: center;
+            width: 100%;
         }
         
         .feature-card:hover {
@@ -576,15 +546,16 @@
             background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
             color: white;
             padding: 60px 0 0;
+            width: 100%;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 50px;
-            max-width: 1400px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 30px 60px;
+            padding: 0 15px 60px;
         }
         
         .footer-column h3 {
@@ -657,20 +628,52 @@
             padding: 25px 0;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
         }
 
-        /* Responsive Product Layout */
-        @media (max-width: 992px) {
+        /* ===== FULL SCREEN RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 15px;
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .search-input {
+                width: 120px;
+            }
+
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo-circle {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            /* Full width container on mobile */
+            .container {
+                padding: 0 15px;
+                max-width: 100%;
+            }
+
             .product-layout {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
-            
+
             .product-image {
                 height: 300px;
             }
-        }
 
-        @media (max-width: 768px) {
             .product-header h1 {
                 font-size: 2rem;
             }
@@ -678,13 +681,47 @@
             .product-price {
                 font-size: 1.8rem;
             }
-            
+
             .action-group {
                 flex-direction: column;
+            }
+
+            .specs-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .spec-label {
+                width: 100%;
+            }
+
+            .cart-section {
+                padding: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
 
         @media (max-width: 576px) {
+            .header-inner {
+                padding: 0 12px;
+            }
+
+            .search-input {
+                width: 100px;
+            }
+
+            .logo-text p {
+                display: none;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+
             .product-header h1 {
                 font-size: 1.8rem;
             }
@@ -696,11 +733,108 @@
             .section-heading h2 {
                 font-size: 1.8rem;
             }
+
+            .product-image {
+                height: 250px;
+            }
+
+            .specs-box {
+                padding: 20px;
+            }
+
+            .cart-summary {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-wrapper {
+                display: none;
+            }
+
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+
+            .logo-circle {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            .product-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .product-price {
+                font-size: 1.4rem;
+            }
+
+            .product-desc {
+                font-size: 1rem;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 10px 60px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header-inner {
+                padding: 0 8px;
+            }
+
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+
+            .logo-circle {
+                width: 28px;
+                height: 28px;
+                font-size: 0.8rem;
+            }
+
+            .container {
+                padding: 0 8px;
+            }
+
+            .product-header h1 {
+                font-size: 1.4rem;
+            }
+
+            .product-price {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Ensure full width on all devices */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1200px;
+            }
+            
+            .header-inner {
+                max-width: 1400px;
+            }
+            
+            .footer-content {
+                max-width: 1400px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Simplified Header -->
+    <!-- Full Width Header -->
     <header class="site-header">
         <div class="header-inner">
             <div class="site-logo" onclick="window.location.href='index.html'">
@@ -738,7 +872,7 @@
         </div>
     </header>
 
-    <!-- Product Content -->
+    <!-- Full Width Product Content -->
     <section class="product-page">
         <div class="container">
             <a href="index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة إلى المنتجات</a>
@@ -746,39 +880,43 @@
             <div class="product-layout">
                 <div class="product-gallery">
                     <div class="product-image">
-                        <img src="https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg" alt="Meuleuse d'angle 1000W">
+                        <img src="https://www.outillage-avenue.com/lib/picts/prod1/50006.jpg" alt="SCHNEIDER Aspirateur 50 L 1600 W">
                     </div>
                 </div>
                 
                 <div class="product-header">
-                    <h1>Meuleuse d'angle 1000W</h1>
-                    <span class="product-price">3,800 د.ج</span>
+                    <h1>SCHNEIDER Aspirateur 50 L 1600 W</h1>
+                    <span class="product-price">25,000 د.ج</span>
                     <p class="product-desc">
-                        ماكينة جلخ زاوية بقوة 1000 واط، مثالية لقطع وتلميع المعادن والمواد الصلبة. تتميز بمحرك قوي يتحمل العمل الشاق، مع تصميم مريح يسهل الاستخدام لفترات طويلة. مثالية للاستخدام في ورش العمل والمواقع الإنشائية.
+                        مكنسة صناعية احترافية بخزان 50 لتر بقوة 1600 واط، مثالية لورش العمل والمواقع الصناعية. تتميز بخزان فولاذي مقاوم للصدمات، نظام ترشيح HEPA مع فلتر فوم، وعجلات متعددة الاتجاهات لسهولة الحركة.
                     </p>
                     
                     <div class="specs-box">
                         <h3>المواصفات الفنية</h3>
                         <ul class="specs-list">
                             <li class="specs-item">
-                                <span class="spec-label">الجهد الكهربائي:</span>
-                                <span class="spec-value">220-240V~50/60Hz</span>
+                                <span class="spec-label">الماركة:</span>
+                                <span class="spec-value">SCHNEIDER</span>
+                            </li>
+                            <li class="specs-item">
+                                <span class="spec-label">سعة الخزان:</span>
+                                <span class="spec-value">50 لتر</span>
                             </li>
                             <li class="specs-item">
                                 <span class="spec-label">القدرة:</span>
-                                <span class="spec-value">1000 W</span>
+                                <span class="spec-value">1600 واط</span>
                             </li>
                             <li class="specs-item">
-                                <span class="spec-label">السرعة بدون حمل:</span>
-                                <span class="spec-value">11000 دورة/دقيقة</span>
+                                <span class="spec-label">نظام الترشيح:</span>
+                                <span class="spec-value">HEPA + فلتر فوم</span>
                             </li>
                             <li class="specs-item">
-                                <span class="spec-label">قطر القرص:</span>
-                                <span class="spec-value">115 ملم</span>
+                                <span class="spec-label">مادة الخزان:</span>
+                                <span class="spec-value">فولاذ / ستانلس</span>
                             </li>
                             <li class="specs-item">
-                                <span class="spec-label">الوزن:</span>
-                                <span class="spec-value">1.6 كغ</span>
+                                <span class="spec-label">الاستخدام:</span>
+                                <span class="spec-value">صناعي / ورش عمل</span>
                             </li>
                         </ul>
                     </div>
@@ -800,7 +938,7 @@
                     <div class="cart-totals">
                         <div class="total-line">
                             <span>المجموع الجزئي:</span>
-                            <span id="subtotal">3,800 د.ج</span>
+                            <span id="subtotal">25,000 د.ج</span>
                         </div>
                         <div class="total-line">
                             <span>تكاليف الشحن:</span>
@@ -808,7 +946,7 @@
                         </div>
                         <div class="total-line final">
                             <span>المجموع الكلي:</span>
-                            <span id="total">4,300 د.ج</span>
+                            <span id="total">25,500 د.ج</span>
                         </div>
                     </div>
                 </div>
@@ -843,34 +981,34 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-wind"></i>
                     </div>
-                    <h3>قوة فائقة</h3>
-                    <p>محرك بقوة 1000 واط يوفر أداءً متميزاً في القطع والتلميع</p>
+                    <h3>شفط قوي</h3>
+                    <p>محرك بقوة 1600 واط يوفر شفطاً قوياً وفعالاً للغبار والمواد الصلبة</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="fas fa-filter"></i>
                     </div>
-                    <h3>سرعة عالية</h3>
-                    <p>سرعة دوران تصل إلى 11000 دورة في الدقيقة للقطع السريع والدقيق</p>
+                    <h3>ترشيح متقدم</h3>
+                    <p>نظام ترشيح HEPA مع فلتر فوم يضمن احتجاز الجسيمات الدقيقة والغبار</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-weight"></i>
+                        <i class="fas fa-box"></i>
                     </div>
-                    <h3>خفيفة الوزن</h3>
-                    <p>تصميم خفيف الوزن (1.6 كغ) يسهل الاستخدام لفترات طويلة</p>
+                    <h3>سعة كبيرة</h3>
+                    <p>خزان بسعة 50 لتر يسمح بالعمل لفترات طويلة دون الحاجة للتفريغ المتكرر</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-cogs"></i>
                     </div>
-                    <h3>حماية متكاملة</h3>
-                    <p>نظام حماية من السخونة الزائدة وغطاء حماية للقرص</p>
+                    <h3>متانة عالية</h3>
+                    <p>خزان فولاذي / ستانلس مقاوم للصدمات والتآكل مع عجلات متعددة الاتجاهات</p>
                 </div>
             </div>
         </div>
@@ -919,10 +1057,10 @@
     <script>
         // Product data
         const product = {
-            id: '2',
-            name: 'Meuleuse d\'angle 1000W',
-            price: 3800,
-            image: 'https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg'
+            id: '5',
+            name: 'SCHNEIDER Aspirateur 50 L 1600 W',
+            price: 25000,
+            image: 'https://www.outillage-avenue.com/lib/picts/prod1/50006.jpg'
         };
         
         // Cart functions
