@@ -30,35 +30,40 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.7;
+            width: 100%;
+            overflow-x: hidden;
         }
-        
-        /* Fixed Header Styles */
-        header {
+
+        /* ===== FULL WIDTH HEADER ===== */
+        .site-header {
             background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
             color: white;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            width: 100%;
         }
-        
-        .header-container {
+
+        .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
+            width: 100%;
             margin: 0 auto;
-            padding: 10px 20px;
+            padding: 0 15px;
         }
-        
-        .logo {
+
+        /* Logo */
+        .site-logo {
             display: flex;
             align-items: center;
             gap: 10px;
             cursor: pointer;
         }
-        
-        .logo-icon {
+
+        .logo-circle {
             width: 45px;
             height: 45px;
             background: var(--secondary);
@@ -68,77 +73,91 @@
             justify-content: center;
             font-size: 1.3rem;
             color: var(--primary);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
-        
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        
+
         .logo-text h1 {
             font-size: 1.8rem;
             font-weight: 900;
             line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            letter-spacing: 1px;
         }
-        
+
         .logo-text p {
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.8);
             margin-top: 3px;
         }
-        
-        .nav-container {
+
+        /* Navigation */
+        .site-nav {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
-        
-        .main-nav {
+
+        .nav-list {
             display: flex;
             list-style: none;
-            gap: 3px;
+            gap: 5px;
         }
-        
-        .main-nav li {
-            position: relative;
-        }
-        
-        .main-nav a {
+
+        .nav-item a {
             color: white;
             text-decoration: none;
-            padding: 8px 15px;
+            padding: 8px 16px;
             display: block;
             border-radius: 6px;
             transition: var(--transition);
             font-weight: 600;
             font-size: 0.95rem;
         }
-        
-        .main-nav a:hover {
+
+        .nav-item a:hover {
             background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
         }
-        
-        .header-actions {
+
+        /* Header Tools */
+        .header-tools {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
-        
-        .cart-icon {
+
+        .search-wrapper {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            padding: 8px 15px;
+            color: white;
+            width: 150px;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .cart-wrapper {
             position: relative;
             font-size: 1.3rem;
             color: white;
             cursor: pointer;
-            transition: var(--transition);
             padding: 8px;
-            border-radius: 50%;
         }
-        
-        .cart-count {
+
+        .cart-badge {
             position: absolute;
             top: 3px;
             left: 3px;
@@ -153,93 +172,63 @@
             font-size: 0.7rem;
             font-weight: bold;
         }
-        
-        .search-box {
-            display: flex;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-        
-        .search-box:focus-within {
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 0 2px var(--secondary);
-        }
-        
-        .search-box input {
-            background: transparent;
-            border: none;
-            padding: 8px 15px;
-            color: white;
-            width: 150px;
-        }
-        
-        .search-box input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .search-box button {
-            background: transparent;
+
+        .mobile-toggle {
+            display: none;
+            background: none;
             border: none;
             color: white;
-            padding: 8px 12px;
+            font-size: 1.3rem;
             cursor: pointer;
-            transition: var(--transition);
+            padding: 5px;
         }
-        
-        .search-box button:hover {
-            color: var(--secondary);
-        }
-        
-        /* Product Page Styles */
+
+        /* ===== FULL WIDTH PRODUCT PAGE ===== */
         .product-page {
             padding: 70px 0;
             background: white;
+            width: 100%;
         }
         
         .container {
-            max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
-        .back-to-products {
+        .back-link {
             display: inline-flex;
             align-items: center;
             color: var(--primary);
             text-decoration: none;
             font-weight: bold;
             margin-bottom: 30px;
-            transition: var(--transition);
             padding: 10px 20px;
             border-radius: 6px;
             background: #f1f5f9;
         }
         
-        .back-to-products:hover {
+        .back-link:hover {
             color: var(--secondary);
             background: #e2e8f0;
         }
         
-        .back-to-products i {
-            margin-right: 8px;
-        }
-        
-        .product-detail {
+        .product-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 30px;
             margin-bottom: 50px;
+            width: 100%;
         }
         
-        .product-images {
+        .product-gallery {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            width: 100%;
         }
         
-        .main-image {
+        .product-image {
             background: #f8fafc;
             border-radius: 12px;
             overflow: hidden;
@@ -248,21 +237,24 @@
             justify-content: center;
             height: 400px;
             box-shadow: var(--shadow);
+            width: 100%;
         }
         
-        .main-image img {
+        .product-image img {
             max-width: 80%;
             max-height: 80%;
-            object-fit: contain;
+            width: auto;
+            height: auto;
         }
         
-        .product-info h1 {
+        .product-header h1 {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 20px;
+            width: 100%;
         }
         
-        .product-price-large {
+        .product-price {
             font-size: 2rem;
             color: var(--secondary);
             font-weight: bold;
@@ -270,22 +262,24 @@
             display: block;
         }
         
-        .product-description {
+        .product-desc {
             margin-bottom: 30px;
             color: var(--gray);
             line-height: 1.8;
             font-size: 1.1rem;
+            width: 100%;
         }
         
-        .specifications {
+        .specs-box {
             margin-bottom: 40px;
             background: #f8fafc;
             padding: 25px;
             border-radius: 12px;
             box-shadow: var(--shadow);
+            width: 100%;
         }
         
-        .specifications h3 {
+        .specs-box h3 {
             font-size: 1.5rem;
             color: var(--primary);
             margin-bottom: 20px;
@@ -293,45 +287,51 @@
             border-bottom: 2px solid var(--secondary);
         }
         
-        .specifications ul {
+        .specs-list {
             list-style: none;
+            width: 100%;
         }
         
-        .specifications li {
+        .specs-item {
             padding: 12px 0;
             border-bottom: 1px solid #e2e8f0;
             display: flex;
+            width: 100%;
         }
         
-        .specifications li:last-child {
+        .specs-item:last-child {
             border-bottom: none;
         }
         
-        .spec-name {
+        .spec-label {
             font-weight: bold;
             color: var(--primary);
             width: 200px;
+            flex-shrink: 0;
         }
         
         .spec-value {
             color: var(--gray);
+            flex: 1;
         }
         
-        /* Add to Cart Section */
-        .add-to-cart-section {
+        /* Cart Section */
+        .cart-section {
             background: white;
             border-radius: 12px;
             padding: 30px;
             box-shadow: var(--shadow);
             margin-bottom: 50px;
+            width: 100%;
         }
         
-        .add-to-cart-section h2 {
+        .cart-section h2 {
             font-size: 1.8rem;
             color: var(--primary);
             margin-bottom: 25px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--secondary);
+            width: 100%;
         }
         
         .cart-summary {
@@ -339,6 +339,7 @@
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 25px;
+            width: 100%;
         }
         
         .cart-summary h3 {
@@ -347,14 +348,15 @@
             margin-bottom: 15px;
         }
         
-        .quantity-control {
+        .quantity-selector {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-bottom: 15px;
+            width: 100%;
         }
         
-        .quantity-btn {
+        .qty-btn {
             width: 40px;
             height: 40px;
             background: var(--secondary);
@@ -367,15 +369,9 @@
             justify-content: center;
             font-size: 1.2rem;
             font-weight: bold;
-            transition: var(--transition);
         }
         
-        .quantity-btn:hover {
-            background: #e6c34e;
-            transform: scale(1.05);
-        }
-        
-        .quantity-input {
+        .qty-input {
             width: 70px;
             text-align: center;
             padding: 10px;
@@ -389,16 +385,18 @@
             margin-top: 15px;
             padding-top: 15px;
             border-top: 2px solid #e2e8f0;
+            width: 100%;
         }
         
-        .total-row {
+        .total-line {
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
             padding: 8px 0;
+            width: 100%;
         }
         
-        .total-row.final {
+        .total-line.final {
             font-weight: bold;
             font-size: 1.3rem;
             color: var(--primary);
@@ -407,7 +405,7 @@
             border-top: 2px dashed #e2e8f0;
         }
         
-        .btn {
+        .action-btn {
             display: inline-block;
             background: linear-gradient(135deg, var(--secondary), #e6c34e);
             color: var(--primary);
@@ -416,14 +414,14 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: var(--transition);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
             border: none;
             cursor: pointer;
             text-align: center;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            width: 100%;
         }
         
-        .btn:hover {
+        .action-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4);
         }
@@ -447,18 +445,18 @@
             color: var(--primary);
         }
         
-        .action-buttons {
+        .action-group {
             display: flex;
             gap: 15px;
             margin-top: 20px;
+            width: 100%;
         }
         
-        .action-buttons .btn {
+        .action-group .action-btn {
             flex: 1;
         }
         
-        /* Success Message */
-        .success-message {
+        .success-msg {
             display: none;
             text-align: center;
             padding: 20px;
@@ -466,6 +464,7 @@
             border-radius: 8px;
             margin-top: 20px;
             border: 1px solid #c8e6c9;
+            width: 100%;
         }
         
         .success-icon {
@@ -474,59 +473,48 @@
             margin-bottom: 10px;
         }
         
-        .success-message p {
+        .success-msg p {
             color: #2d3748;
             margin-bottom: 15px;
         }
         
-        /* Features Section */
-        .product-features {
+        /* Features */
+        .features-section {
             padding: 60px 0;
             background: #f8fafc;
+            width: 100%;
         }
         
-        .section-title {
+        .section-heading {
             text-align: center;
             margin-bottom: 50px;
+            width: 100%;
         }
         
-        .section-title h2 {
+        .section-heading h2 {
             font-size: 2.2rem;
             color: var(--primary);
             margin-bottom: 20px;
             font-weight: 800;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title h2::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
         }
         
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            width: 100%;
         }
         
-        .feature-item {
+        .feature-card {
             background: white;
             border-radius: 12px;
             padding: 30px;
             box-shadow: var(--shadow);
             text-align: center;
-            transition: var(--transition);
+            width: 100%;
         }
         
-        .feature-item:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
         }
         
@@ -543,49 +531,37 @@
             color: var(--secondary);
         }
         
-        .feature-item h3 {
+        .feature-card h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
             color: var(--primary);
         }
         
-        .feature-item p {
+        .feature-card p {
             color: var(--gray);
         }
         
         /* Footer */
-        footer {
+        .site-footer {
             background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
             color: white;
             padding: 60px 0 0;
+            width: 100%;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 50px;
-            max-width: 1400px;
+            width: 100%;
             margin: 0 auto;
-            padding: 0 30px 60px;
+            padding: 0 15px 60px;
         }
         
         .footer-column h3 {
             color: var(--secondary);
             margin-bottom: 25px;
             font-size: 1.4rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--secondary);
-            border-radius: 2px;
         }
         
         .footer-links {
@@ -599,14 +575,12 @@
         .footer-links a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            transition: var(--transition);
             display: flex;
             align-items: center;
         }
         
         .footer-links a:hover {
             color: var(--secondary);
-            transform: translateX(5px);
         }
         
         .footer-links a i {
@@ -627,13 +601,13 @@
             font-size: 1.1rem;
         }
         
-        .social-icons {
+        .social-links {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
         
-        .social-icons a {
+        .social-links a {
             width: 40px;
             height: 40px;
             background: rgba(255, 255, 255, 0.1);
@@ -642,13 +616,11 @@
             align-items: center;
             justify-content: center;
             color: white;
-            transition: var(--transition);
         }
         
-        .social-icons a:hover {
+        .social-links a:hover {
             background: var(--secondary);
             color: var(--primary);
-            transform: translateY(-5px);
         }
         
         .copyright {
@@ -656,240 +628,217 @@
             padding: 25px 0;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
         }
-        
-        /* Responsive - Fixed */
-        @media (max-width: 992px) {
-            .product-detail {
-                grid-template-columns: 1fr;
-            }
-            
-            .main-image {
-                height: 300px;
-            }
-        }
-        
+
+        /* ===== FULL SCREEN RESPONSIVE DESIGN ===== */
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: row;
-                gap: 15px;
-                padding: 8px 15px;
-            }
-            
-            .nav-container {
-                width: auto;
-                justify-content: flex-end;
-            }
-            
-            .main-nav {
-                display: none;
-            }
-            
-            .search-box input {
-                width: 120px;
-            }
-            
-            .product-info h1 {
-                font-size: 2rem;
-            }
-            
-            .product-price-large {
-                font-size: 1.8rem;
-            }
-            
-            .container {
+            .header-inner {
                 padding: 0 15px;
             }
-            
-            .action-buttons {
-                flex-direction: column;
+
+            .nav-list {
+                display: none;
             }
-            
-            .spec-name {
-                width: 150px;
+
+            .mobile-toggle {
+                display: block;
             }
-            
-            .header-actions {
-                gap: 8px;
+
+            .search-input {
+                width: 120px;
             }
-            
-            .search-box input {
-                width: 100px;
-                padding: 6px 10px;
-            }
-            
-            .search-box button {
-                padding: 6px 8px;
-            }
-            
-            .cart-icon {
-                font-size: 1.1rem;
-                padding: 6px;
-            }
-            
-            .cart-count {
-                width: 16px;
-                height: 16px;
-                font-size: 0.7rem;
-                top: 2px;
-                left: 2px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .header-container {
-                padding: 6px 12px;
-            }
-            
+
             .logo-text h1 {
                 font-size: 1.5rem;
             }
-            
-            .logo-icon {
+
+            .logo-circle {
                 width: 35px;
                 height: 35px;
                 font-size: 1rem;
             }
-            
-            .search-box input {
-                width: 80px;
-                padding: 5px 8px;
-                font-size: 0.8rem;
+
+            /* Full width container on mobile */
+            .container {
+                padding: 0 15px;
+                max-width: 100%;
             }
-            
-            .search-box button {
-                padding: 5px 7px;
-                font-size: 0.8rem;
-            }
-            
-            .cart-icon {
-                font-size: 1rem;
-                padding: 5px;
-            }
-            
-            .add-to-cart-section {
-                padding: 20px;
-            }
-            
-            .features-grid {
+
+            .product-layout {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .product-image {
+                height: 300px;
+            }
+
+            .product-header h1 {
+                font-size: 2rem;
             }
             
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .product-price {
+                font-size: 1.8rem;
             }
-            
-            .specifications li {
+
+            .action-group {
+                flex-direction: column;
+            }
+
+            .specs-item {
                 flex-direction: column;
                 gap: 5px;
             }
-            
-            .spec-name {
+
+            .spec-label {
                 width: 100%;
             }
-            
+
+            .cart-section {
+                padding: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-inner {
+                padding: 0 12px;
+            }
+
+            .search-input {
+                width: 100px;
+            }
+
             .logo-text p {
                 display: none;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .product-page {
-                padding: 60px 0;
+
+            .container {
+                padding: 0 12px;
             }
-            
-            .product-info h1 {
+
+            .product-header h1 {
                 font-size: 1.8rem;
             }
             
-            .product-price-large {
+            .product-price {
                 font-size: 1.6rem;
             }
             
-            .section-title h2 {
+            .section-heading h2 {
                 font-size: 1.8rem;
             }
-            
+
+            .product-image {
+                height: 250px;
+            }
+
+            .specs-box {
+                padding: 20px;
+            }
+
             .cart-summary {
                 padding: 15px;
             }
-            
-            .quantity-control {
-                justify-content: center;
+        }
+
+        @media (max-width: 480px) {
+            .search-wrapper {
+                display: none;
             }
-            
-            .product-detail {
-                gap: 30px;
-            }
-            
-            .main-image {
-                height: 250px;
-            }
-            
-            .header-container {
-                padding: 5px 10px;
-            }
-            
+
             .logo-text h1 {
                 font-size: 1.3rem;
             }
-            
-            .logo-icon {
+
+            .logo-circle {
                 width: 30px;
                 height: 30px;
                 font-size: 0.9rem;
             }
-            
-            .search-box {
-                display: none;
+
+            .container {
+                padding: 0 10px;
+            }
+
+            .product-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .product-price {
+                font-size: 1.4rem;
+            }
+
+            .product-desc {
+                font-size: 1rem;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 10px 60px;
             }
         }
-        
+
         @media (max-width: 360px) {
-            .header-container {
-                padding: 5px 8px;
+            .header-inner {
+                padding: 0 8px;
             }
-            
+
             .logo-text h1 {
                 font-size: 1.2rem;
             }
-            
-            .logo-icon {
+
+            .logo-circle {
                 width: 28px;
                 height: 28px;
                 font-size: 0.8rem;
             }
-            
-            .cart-icon {
-                font-size: 0.9rem;
+
+            .container {
+                padding: 0 8px;
+            }
+
+            .product-header h1 {
+                font-size: 1.4rem;
+            }
+
+            .product-price {
+                font-size: 1.3rem;
             }
         }
-        
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.3rem;
-            cursor: pointer;
-            padding: 5px;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
+
+        /* Ensure full width on all devices */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1200px;
+            }
+            
+            .header-inner {
+                max-width: 1400px;
+            }
+            
+            .footer-content {
+                max-width: 1400px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo" onclick="window.location.href='index.html'">
-                <div class="logo-icon">
+    <!-- Full Width Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="site-logo" onclick="window.location.href='index.html'">
+                <div class="logo-circle">
                     <i class="fas fa-tools"></i>
                 </div>
                 <div class="logo-text">
@@ -898,73 +847,75 @@
                 </div>
             </div>
             
-            <div class="nav-container">
-                <ul class="main-nav">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="index.html#productsSection">المنتجات</a></li>
-                    <li><a href="#">العلامات التجارية</a></li>
-                    <li><a href="#">اتصل بنا</a></li>
+            <nav class="site-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a href="index.html#productsSection">المنتجات</a></li>
+                    <li class="nav-item"><a href="#">العلامات التجارية</a></li>
+                    <li class="nav-item"><a href="#">اتصل بنا</a></li>
                 </ul>
                 
-                <div class="header-actions">
-                    <div class="search-box">
-                        <input type="text" placeholder="ابحث عن المنتج...">
-                        <button><i class="fas fa-search"></i></button>
+                <div class="header-tools">
+                    <div class="search-wrapper">
+                        <input type="text" class="search-input" placeholder="ابحث عن المنتج...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
                     </div>
-                    <div class="cart-icon" onclick="window.location.href='cart.html'">
+                    <div class="cart-wrapper" onclick="window.location.href='cart.html'">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count" id="cart-count">0</span>
+                        <span class="cart-badge" id="cart-count">0</span>
                     </div>
-                    <button class="mobile-menu-btn">
+                    <button class="mobile-toggle">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
-            </div>
+            </nav>
         </div>
     </header>
 
-    <!-- Product Page -->
+    <!-- Full Width Product Content -->
     <section class="product-page">
         <div class="container">
-            <a href="index.html" class="back-to-products"><i class="fas fa-arrow-right"></i> العودة إلى المنتجات</a>
-            <div class="product-detail">
-                <div class="product-images">
-                    <div class="main-image">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة إلى المنتجات</a>
+            
+            <div class="product-layout">
+                <div class="product-gallery">
+                    <div class="product-image">
                         <img src="https://www.soficlef.com/wp-content/uploads/2025/03/CC-60.jpg" alt="SOFICLEF Tile Cutter 600mm">
                     </div>
                 </div>
-                <div class="product-info">
+                
+                <div class="product-header">
                     <h1>SOFICLEF Tile Cutter 600mm</h1>
-                    <span class="product-price-large">18,000 د.ج</span>
-                    <p class="product-description">
+                    <span class="product-price">18,000 د.ج</span>
+                    <p class="product-desc">
                         ماكينة قطع السيراميك الاحترافية بسعة قطع تصل إلى 600 مم. تتميز بتصميم متين وتدعم ثلاثة أنماط قطع في ماكينة واحدة: القطع المستقيم، القطع القطري، وقطع الدوائر والفتحات. مثالية لمشاريع البناء والديكور.
                     </p>
                     
-                    <div class="specifications">
+                    <div class="specs-box">
                         <h3>المواصفات الفنية</h3>
-                        <ul>
-                            <li>
-                                <span class="spec-name">الماركة:</span>
+                        <ul class="specs-list">
+                            <li class="specs-item">
+                                <span class="spec-label">الماركة:</span>
                                 <span class="spec-value">SOFICLEF</span>
                             </li>
-                            <li>
-                                <span class="spec-name">أقصى طول قطع:</span>
+                            <li class="specs-item">
+                                <span class="spec-label">أقصى طول قطع:</span>
                                 <span class="spec-value">600 مم</span>
                             </li>
-                            <li>
-                                <span class="spec-name">أقصى عرض قطع:</span>
+                            <li class="specs-item">
+                                <span class="spec-label">أقصى عرض قطع:</span>
                                 <span class="spec-value">198 مم</span>
                             </li>
-                            <li>
-                                <span class="spec-name">أبعاد الشفرة:</span>
+                            <li class="specs-item">
+                                <span class="spec-label">أبعاد الشفرة:</span>
                                 <span class="spec-value">Ø 16 × 6 × 3 مم</span>
                             </li>
-                            <li>
-                                <span class="spec-name">عمق القطع:</span>
+                            <li class="specs-item">
+                                <span class="spec-label">عمق القطع:</span>
                                 <span class="spec-value">أكثر من 12 مم</span>
                             </li>
-                            <li>
-                                <span class="spec-name">أنماط القطع:</span>
+                            <li class="specs-item">
+                                <span class="spec-label">أنماط القطع:</span>
                                 <span class="spec-value">مستقيم، قطري، دوائر وفتحات</span>
                             </li>
                         </ul>
@@ -972,63 +923,63 @@
                 </div>
             </div>
             
-            <!-- Add to Cart Section -->
-            <div class="add-to-cart-section">
+            <!-- Cart Section -->
+            <div class="cart-section">
                 <h2>أضف إلى سلة التسوق</h2>
                 
                 <div class="cart-summary">
                     <h3>ملخص الطلب</h3>
-                    <div class="quantity-control">
-                        <button class="quantity-btn" id="decrease-qty">-</button>
-                        <input type="number" class="quantity-input" id="quantity" value="1" min="1">
-                        <button class="quantity-btn" id="increase-qty">+</button>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" id="decrease-qty">-</button>
+                        <input type="number" class="qty-input" id="quantity" value="1" min="1">
+                        <button class="qty-btn" id="increase-qty">+</button>
                     </div>
                     
                     <div class="cart-totals">
-                        <div class="total-row">
+                        <div class="total-line">
                             <span>المجموع الجزئي:</span>
                             <span id="subtotal">18,000 د.ج</span>
                         </div>
-                        <div class="total-row">
+                        <div class="total-line">
                             <span>تكاليف الشحن:</span>
                             <span id="shipping">500 د.ج</span>
                         </div>
-                        <div class="total-row final">
+                        <div class="total-line final">
                             <span>المجموع الكلي:</span>
                             <span id="total">18,500 د.ج</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="action-buttons">
-                    <button class="btn btn-large" id="add-to-cart">
+                <div class="action-group">
+                    <button class="action-btn btn-large" id="add-to-cart">
                         <i class="fas fa-cart-plus"></i> أضف إلى السلة
                     </button>
-                    <a href="cart.html" class="btn btn-outline">
+                    <a href="cart.html" class="action-btn btn-outline">
                         <i class="fas fa-shopping-cart"></i> عرض السلة
                     </a>
                 </div>
                 
-                <div class="success-message" id="success-message">
+                <div class="success-msg" id="success-message">
                     <div class="success-icon">
                         <i class="fas fa-check-circle"></i>
                     </div>
                     <p>تمت إضافة المنتج إلى سلة التسوق بنجاح!</p>
-                    <a href="cart.html" class="btn">الذهاب إلى السلة</a>
+                    <a href="cart.html" class="action-btn">الذهاب إلى السلة</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="product-features">
+    <section class="features-section">
         <div class="container">
-            <div class="section-title">
+            <div class="section-heading">
                 <h2>مميزات المنتج</h2>
             </div>
             
             <div class="features-grid">
-                <div class="feature-item">
+                <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-ruler-combined"></i>
                     </div>
@@ -1036,7 +987,7 @@
                     <p>تدعم قطع السيراميك حتى 600 مم طولاً، مناسبة للمشاريع الكبيرة والصغيرة</p>
                 </div>
                 
-                <div class="feature-item">
+                <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-cut"></i>
                     </div>
@@ -1044,7 +995,7 @@
                     <p>ثلاثة أنماط قطع في ماكينة واحدة: مستقيم، قطري، ودوائر وفتحات</p>
                 </div>
                 
-                <div class="feature-item">
+                <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
@@ -1052,7 +1003,7 @@
                     <p>تصميم دقيق مع دليل قياس قابل للتعديل لضمان قطع دقيق ومحترف</p>
                 </div>
                 
-                <div class="feature-item">
+                <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-hard-hat"></i>
                     </div>
@@ -1064,12 +1015,12 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-column">
                 <h3>عن الشركة</h3>
                 <p>QSV هي شركة رائدة في مجال توريد الأدوات والمعدات المهنية، نقدم منتجات عالية الجودة مع خدمة عملاء متميزة وضمان شامل على جميع المنتجات.</p>
-                <div class="social-icons">
+                <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1104,7 +1055,7 @@
     </footer>
 
     <script>
-        // بيانات المنتج
+        // Product data
         const product = {
             id: '6',
             name: 'SOFICLEF Tile Cutter 600mm',
@@ -1112,7 +1063,7 @@
             image: 'https://www.soficlef.com/wp-content/uploads/2025/03/CC-60.jpg'
         };
         
-        // Shopping Cart Functions
+        // Cart functions
         function getCart() {
             return JSON.parse(localStorage.getItem('qsv_cart')) || {};
         }
@@ -1147,7 +1098,7 @@
             document.getElementById('cart-count').textContent = totalItems;
         }
         
-        // عند تحميل الصفحة
+        // Page load
         document.addEventListener('DOMContentLoaded', function() {
             const quantityInput = document.getElementById('quantity');
             const decreaseBtn = document.getElementById('decrease-qty');
@@ -1157,7 +1108,7 @@
             const addToCartBtn = document.getElementById('add-to-cart');
             const successMessage = document.getElementById('success-message');
             
-            // تحديث الحسابات
+            // Update calculations
             function updateCalculations() {
                 const quantity = parseInt(quantityInput.value);
                 const subtotal = product.price * quantity;
@@ -1168,11 +1119,11 @@
                 totalEl.textContent = total.toLocaleString() + ' د.ج';
             }
             
-            // تحديث الحسابات عند تحميل الصفحة
+            // Initial setup
             updateCalculations();
             updateCartCount();
             
-            // أزرار زيادة وتقليل الكمية
+            // Quantity buttons
             decreaseBtn.addEventListener('click', function() {
                 let quantity = parseInt(quantityInput.value);
                 if (quantity > 1) {
@@ -1195,15 +1146,13 @@
                 updateCalculations();
             });
             
-            // إضافة إلى السلة
+            // Add to cart
             addToCartBtn.addEventListener('click', function() {
                 const quantity = parseInt(quantityInput.value);
                 
                 if (addToCart(product.id, product.name, product.price, product.image, quantity)) {
-                    // عرض رسالة النجاح
                     successMessage.style.display = 'block';
                     
-                    // إخفاء الرسالة بعد 5 ثواني
                     setTimeout(() => {
                         successMessage.style.display = 'none';
                     }, 5000);
