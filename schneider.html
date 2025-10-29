@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -1228,20 +1229,20 @@
             price: 25000,
             image: 'https://www.outillage-avenue.com/lib/picts/prod1/50006.jpg'
         };
-        
+
         // Shopping Cart Functions
         function getCart() {
             return JSON.parse(localStorage.getItem('qsv_cart')) || {};
         }
-        
+
         function saveCart(cart) {
             localStorage.setItem('qsv_cart', JSON.stringify(cart));
             updateCartCount();
         }
-        
+
         function addToCart(productId, productName, productPrice, productImage, quantity = 1) {
             const cart = getCart();
-            
+
             if (cart[productId]) {
                 cart[productId].quantity += quantity;
             } else {
@@ -1253,26 +1254,28 @@
                     quantity: quantity
                 };
             }
-            
+
             saveCart(cart);
             return true;
         }
-        
+
         function updateCartCount() {
             const cart = getCart();
             const totalItems = Object.values(cart).reduce((total, item) => total + item.quantity, 0);
-            document.getElementById('cart-count').textContent = totalItems;
+            const cartCountEl = document.getElementById('cart-count');
+            if (cartCountEl) cartCountEl.textContent = totalItems;
         }
-        
+
         // Mobile Menu Functions
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             const overlay = document.getElementById('overlay');
-            
+            if (!mobileMenu || !overlay) return;
+
             mobileMenu.classList.toggle('active');
             overlay.classList.toggle('active');
         }
-        
+
         // عند تحميل الصفحة
         document.addEventListener('DOMContentLoaded', function() {
             const quantityInput = document.getElementById('quantity');
@@ -1285,64 +1288,75 @@
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const mobileMenuClose = document.getElementById('mobile-menu-close');
             const overlay = document.getElementById('overlay');
-            
-            // Mobile menu event listeners
-            mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-            mobileMenuClose.addEventListener('click', toggleMobileMenu);
-            overlay.addEventListener('click', toggleMobileMenu);
-            
+
+            // Mobile menu event listeners (safe guards)
+            if (mobileMenuToggle) mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+            if (mobileMenuClose) mobileMenuClose.addEventListener('click', toggleMobileMenu);
+            if (overlay) overlay.addEventListener('click', toggleMobileMenu);
+
             // تحديث الحسابات
             function updateCalculations() {
-                const quantity = parseInt(quantityInput.value);
+                const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
                 const subtotal = product.price * quantity;
                 const shipping = 500;
                 const total = subtotal + shipping;
-                
-                subtotalEl.textContent = subtotal.toLocaleString() + ' د.ج';
-                totalEl.textContent = total.toLocaleString() + ' د.ج';
+
+                if (subtotalEl) subtotalEl.textContent = subtotal.toLocaleString() + ' د.ج';
+                if (totalEl) totalEl.textContent = total.toLocaleString() + ' د.ج';
             }
-            
+
             // تحديث الحسابات عند تحميل الصفحة
             updateCalculations();
             updateCartCount();
-            
-            // أزرار زيادة وتقليل الكمية
-            decreaseBtn.addEventListener('click', function() {
-                let quantity = parseInt(quantityInput.value);
-                if (quantity > 1) {
-                    quantityInput.value = quantity - 1;
+
+            // أزرار زيادة وتقليل الكمية (with guards)
+            if (decreaseBtn) {
+                decreaseBtn.addEventListener('click', function() {
+                    if (!quantityInput) return;
+                    let quantity = parseInt(quantityInput.value) || 1;
+                    if (quantity > 1) {
+                        quantityInput.value = quantity - 1;
+                        updateCalculations();
+                    }
+                });
+            }
+
+            if (increaseBtn) {
+                increaseBtn.addEventListener('click', function() {
+                    if (!quantityInput) return;
+                    let quantity = parseInt(quantityInput.value) || 1;
+                    quantityInput.value = quantity + 1;
                     updateCalculations();
-                }
-            });
-            
-            increaseBtn.addEventListener('click', function() {
-                let quantity = parseInt(quantityInput.value);
-                quantityInput.value = quantity + 1;
-                updateCalculations();
-            });
-            
-            quantityInput.addEventListener('input', function() {
-                let quantity = parseInt(this.value);
-                if (isNaN(quantity) || quantity < 1) {
-                    this.value = 1;
-                }
-                updateCalculations();
-            });
-            
-            // إضافة إلى السلة
-            addToCartBtn.addEventListener('click', function() {
-                const quantity = parseInt(quantityInput.value);
-                
-                if (addToCart(product.id, product.name, product.price, product.image, quantity)) {
-                    // عرض رسالة النجاح
-                    successMessage.style.display = 'block';
-                    
-                    // إخفاء الرسالة بعد 5 ثواني
-                    setTimeout(() => {
-                        successMessage.style.display = 'none';
-                    }, 5000);
-                }
-            });
+                });
+            }
+
+            if (quantityInput) {
+                quantityInput.addEventListener('input', function() {
+                    let quantity = parseInt(this.value);
+                    if (isNaN(quantity) || quantity < 1) {
+                        this.value = 1;
+                    }
+                    updateCalculations();
+                });
+            }
+
+            // إضافة إلى السلة (guarded)
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', function() {
+                    const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
+
+                    if (addToCart(product.id, product.name, product.price, product.image, quantity)) {
+                        // عرض رسالة النجاح
+                        if (successMessage) {
+                            successMessage.style.display = 'block';
+                            // إخفاء الرسالة بعد 5 ثواني
+                            setTimeout(() => {
+                                successMessage.style.display = 'none';
+                            }, 5000);
+                        }
+                    }
+                });
+            }
         });
     </script>
 </body>
