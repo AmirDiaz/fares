@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SCHNEIDER Aspirateur 50 L 1600 W - QSV</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meuleuse d'angle 1000W - QSV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* --- STYLES (kept from your original file, unchanged in content) --- */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap');
+        
         :root {
             --primary: #1a365d;
             --secondary: #d4af37;
@@ -18,387 +18,878 @@
             --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
         }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-        body { background-color: var(--light); color: var(--dark); line-height: 1.7; }
-
-        header {
+        /* ===== SIMPLIFIED HEADER ===== */
+        .site-header {
             background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
             color: white;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
         }
 
-        .header-container { display:flex; justify-content:space-between; align-items:center; max-width:1400px; margin:0 auto; padding:10px 20px; }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        .logo { display:flex; align-items:center; gap:10px; cursor:pointer; }
-        .logo-icon { width:45px; height:45px; background:var(--secondary); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3rem; color:var(--primary); box-shadow:0 0 15px rgba(212,175,55,0.4); }
-        .logo-text { display:flex; flex-direction:column; }
-        .logo-text h1 { font-size:1.8rem; font-weight:900; line-height:1.2; text-shadow:2px 2px 4px rgba(0,0,0,0.2); letter-spacing:1px; }
-        .logo-text p { font-size:0.8rem; color:rgba(255,255,255,0.8); margin-top:3px; }
+        /* Logo */
+        .site-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
 
-        .nav-container { display:flex; align-items:center; gap:15px; }
-        .main-nav { display:flex; list-style:none; gap:3px; }
-        .main-nav a { color:white; text-decoration:none; padding:8px 15px; display:block; border-radius:6px; transition:var(--transition); font-weight:600; font-size:0.95rem; }
-        .main-nav a:hover { background:rgba(255,255,255,0.1); transform:translateY(-2px); }
+        .logo-circle {
+            width: 45px;
+            height: 45px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
 
-        .header-actions { display:flex; align-items:center; gap:12px; }
-        .cart-icon { position:relative; font-size:1.3rem; color:white; cursor:pointer; transition:var(--transition); padding:8px; border-radius:50%; }
-        .cart-count { position:absolute; top:3px; left:3px; background-color:var(--secondary); color:var(--primary); border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:bold; }
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.2;
+        }
 
-        .search-box { display:flex; background:rgba(255,255,255,0.1); border-radius:30px; overflow:hidden; transition:var(--transition); }
-        .search-box:focus-within { background:rgba(255,255,255,0.15); box-shadow:0 0 0 2px var(--secondary); }
-        .search-box input { background:transparent; border:none; padding:8px 15px; color:white; width:150px; }
-        .search-box input::placeholder { color:rgba(255,255,255,0.7); }
-        .search-box button { background:transparent; border:none; color:white; padding:8px 12px; cursor:pointer; transition:var(--transition); }
-        .search-box button:hover { color:var(--secondary); }
+        .logo-text p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 3px;
+        }
 
-        .product-page { padding:70px 0; background:white; }
-        .container { max-width:1200px; margin:0 auto; padding:0 20px; }
-        .back-to-products { display:inline-flex; align-items:center; color:var(--primary); text-decoration:none; font-weight:bold; margin-bottom:30px; transition:var(--transition); padding:10px 20px; border-radius:6px; background:#f1f5f9; }
-        .back-to-products:hover { color:var(--secondary); background:#e2e8f0; }
-        .back-to-products i { margin-right:8px; }
+        /* Navigation */
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-        .product-detail { display:grid; grid-template-columns:1fr 1fr; gap:50px; margin-bottom:50px; }
-        .product-images { display:flex; flex-direction:column; gap:20px; }
-        .main-image { background:#f8fafc; border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; height:400px; box-shadow:var(--shadow); }
-        .main-image img { max-width:80%; max-height:80%; object-fit:contain; }
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
 
-        .product-info h1 { font-size:2.5rem; color:var(--primary); margin-bottom:20px; }
-        .product-price-large { font-size:2rem; color:var(--secondary); font-weight:bold; margin-bottom:30px; display:block; }
-        .product-description { margin-bottom:30px; color:var(--gray); line-height:1.8; font-size:1.1rem; }
+        .nav-item a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            display: block;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
 
-        .specifications { margin-bottom:40px; background:#f8fafc; padding:25px; border-radius:12px; box-shadow:var(--shadow); }
-        .specifications h3 { font-size:1.5rem; color:var(--primary); margin-bottom:20px; padding-bottom:10px; border-bottom:2px solid var(--secondary); }
-        .specifications ul { list-style:none; }
-        .specifications li { padding:12px 0; border-bottom:1px solid #e2e8f0; display:flex; }
-        .specifications li:last-child { border-bottom:none; }
-        .spec-name { font-weight:bold; color:var(--primary); width:200px; }
-        .spec-value { color:var(--gray); }
+        .nav-item a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-        .add-to-cart-section { background:white; border-radius:12px; padding:30px; box-shadow:var(--shadow); margin-bottom:50px; }
-        .add-to-cart-section h2 { font-size:1.8rem; color:var(--primary); margin-bottom:25px; padding-bottom:10px; border-bottom:2px solid var(--secondary); }
-        .cart-summary { background:#f8fafc; border-radius:8px; padding:20px; margin-bottom:25px; }
-        .cart-summary h3 { font-size:1.4rem; color:var(--primary); margin-bottom:15px; }
-        .quantity-control { display:flex; align-items:center; gap:10px; margin-bottom:15px; }
-        .quantity-btn { width:40px; height:40px; background:var(--secondary); color:var(--primary); border:none; border-radius:6px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.2rem; font-weight:bold; transition:var(--transition); }
-        .quantity-btn:hover { background:#e6c34e; transform:scale(1.05); }
-        .quantity-input { width:70px; text-align:center; padding:10px; border:2px solid #e2e8f0; border-radius:6px; font-size:1.1rem; font-weight:bold; }
+        /* Header Tools */
+        .header-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-        .cart-totals { margin-top:15px; padding-top:15px; border-top:2px solid #e2e8f0; }
-        .total-row { display:flex; justify-content:space-between; margin-bottom:8px; padding:8px 0; }
-        .total-row.final { font-weight:bold; font-size:1.3rem; color:var(--primary); margin-top:10px; padding-top:15px; border-top:2px dashed #e2e8f0; }
+        .search-wrapper {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            overflow: hidden;
+        }
 
-        .btn { display:inline-block; background:linear-gradient(135deg, var(--secondary), #e6c34e); color:var(--primary); padding:15px 30px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:1.1rem; transition:var(--transition); box-shadow:0 10px 20px rgba(212,175,55,0.3); border:none; cursor:pointer; text-align:center; }
-        .btn:hover { transform:translateY(-5px); box-shadow:0 15px 25px rgba(212,175,55,0.4); }
-        .btn-large { padding:15px 30px; font-size:1.1rem; width:100%; margin-top:10px; }
-        .btn-outline { background:transparent; border:2px solid var(--secondary); color:var(--secondary); box-shadow:none; }
-        .btn-outline:hover { background:var(--secondary); color:var(--primary); }
+        .search-input {
+            background: transparent;
+            border: none;
+            padding: 8px 15px;
+            color: white;
+            width: 150px;
+        }
 
-        .action-buttons { display:flex; gap:15px; margin-top:20px; }
-        .action-buttons .btn { flex:1; }
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
 
-        .success-message { display:none; text-align:center; padding:20px; background:#e8f5e9; border-radius:8px; margin-top:20px; border:1px solid #c8e6c9; }
-        .success-icon { font-size:1.5rem; color:#38a169; margin-bottom:10px; }
-        .success-message p { color:#2d3748; margin-bottom:15px; }
+        .search-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
 
-        .product-features { padding:60px 0; background:#f8fafc; }
-        .section-title { text-align:center; margin-bottom:50px; }
-        .section-title h2 { font-size:2.2rem; color:var(--primary); margin-bottom:20px; font-weight:800; position:relative; display:inline-block; }
-        .section-title h2::after { content:""; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:80px; height:4px; background:var(--secondary); border-radius:2px; }
+        .cart-wrapper {
+            position: relative;
+            font-size: 1.3rem;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+        }
 
-        .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
-        .feature-item { background:white; border-radius:12px; padding:30px; box-shadow:var(--shadow); text-align:center; transition:var(--transition); }
-        .feature-item:hover { transform:translateY(-5px); }
-        .feature-icon { width:70px; height:70px; background:rgba(212,175,55,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:1.8rem; color:var(--secondary); }
-        .feature-item h3 { font-size:1.3rem; margin-bottom:15px; color:var(--primary); }
-        .feature-item p { color:var(--gray); }
+        .cart-badge {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
 
-        footer { background:linear-gradient(135deg,var(--primary) 0%, #2d3748 100%); color:white; padding:60px 0 0; }
-        .footer-content { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:50px; max-width:1400px; margin:0 auto; padding:0 30px 60px; }
-        .footer-column h3 { color:var(--secondary); margin-bottom:25px; font-size:1.4rem; position:relative; padding-bottom:10px; }
-        .footer-column h3::after { content:""; position:absolute; bottom:0; right:0; width:50px; height:3px; background:var(--secondary); border-radius:2px; }
-        .footer-links { list-style:none; }
-        .footer-links li { margin-bottom:12px; }
-        .footer-links a { color:rgba(255,255,255,0.8); text-decoration:none; transition:var(--transition); display:flex; align-items:center; }
-        .footer-links a:hover { color:var(--secondary); transform:translateX(5px); }
-        .footer-links a i { margin-left:8px; font-size:0.9rem; }
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 5px;
+        }
 
-        .contact-info p { margin-bottom:15px; display:flex; align-items:center; color:rgba(255,255,255,0.9); }
-        .contact-info i { margin-left:12px; color:var(--secondary); font-size:1.1rem; }
-        .social-icons { display:flex; gap:15px; margin-top:20px; }
-        .social-icons a { width:40px; height:40px; background:rgba(255,255,255,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; transition:var(--transition); }
-        .social-icons a:hover { background:var(--secondary); color:var(--primary); transform:translateY(-5px); }
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 15px;
+            }
 
-        .copyright { background:rgba(0,0,0,0.2); padding:25px 0; text-align:center; border-top:1px solid rgba(255,255,255,0.1); }
+            .nav-list {
+                display: none;
+            }
 
-        .mobile-menu { position:fixed; top:0; right:-300px; width:300px; height:100%; background:var(--primary); z-index:2000; transition:var(--transition); padding:20px; overflow-y:auto; box-shadow:-5px 0 15px rgba(0,0,0,0.1); }
-        .mobile-menu.active { right:0; }
-        .mobile-menu-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:30px; padding-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.1); }
-        .mobile-menu-close { background:none; border:none; color:white; font-size:1.5rem; cursor:pointer; }
-        .mobile-nav { list-style:none; }
-        .mobile-nav li { margin-bottom:15px; }
-        .mobile-nav a { color:white; text-decoration:none; display:block; padding:12px 15px; border-radius:6px; transition:var(--transition); font-weight:600; }
-        .mobile-nav a:hover { background:rgba(255,255,255,0.1); }
+            .mobile-toggle {
+                display: block;
+            }
 
-        .mobile-search { margin-top:20px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); }
-        .mobile-search-box { display:flex; background:rgba(255,255,255,0.1); border-radius:30px; overflow:hidden; }
-        .mobile-search-box input { background:transparent; border:none; padding:10px 15px; color:white; flex:1; }
-        .mobile-search-box input::placeholder { color:rgba(255,255,255,0.7); }
-        .mobile-search-box button { background:transparent; border:none; color:white; padding:10px 15px; cursor:pointer; }
+            .search-input {
+                width: 120px;
+            }
 
-        .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1500; display:none; }
-        .overlay.active { display:block; }
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
 
-        .mobile-menu-btn { display:none; background:none; border:none; color:white; font-size:1.3rem; cursor:pointer; padding:5px; }
+            .logo-circle {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
 
+        @media (max-width: 576px) {
+            .header-inner {
+                padding: 0 12px;
+            }
+
+            .search-input {
+                width: 100px;
+            }
+
+            .logo-text p {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-wrapper {
+                display: none;
+            }
+
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+
+            .logo-circle {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== PRODUCT PAGE STYLES ===== */
+        .product-page {
+            padding: 70px 0;
+            background: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            background: #f1f5f9;
+        }
+        
+        .back-link:hover {
+            color: var(--secondary);
+            background: #e2e8f0;
+        }
+        
+        .product-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .product-image {
+            background: #f8fafc;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            box-shadow: var(--shadow);
+        }
+        
+        .product-image img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .product-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .product-price {
+            font-size: 2rem;
+            color: var(--secondary);
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: block;
+        }
+        
+        .product-desc {
+            margin-bottom: 30px;
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .specs-box {
+            margin-bottom: 40px;
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .specs-box h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .specs-list {
+            list-style: none;
+        }
+        
+        .specs-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+        }
+        
+        .specs-item:last-child {
+            border-bottom: none;
+        }
+        
+        .spec-label {
+            font-weight: bold;
+            color: var(--primary);
+            width: 200px;
+        }
+        
+        .spec-value {
+            color: var(--gray);
+        }
+        
+        /* Cart Section */
+        .cart-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+        }
+        
+        .cart-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .cart-summary {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .cart-summary h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .qty-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .qty-input {
+            width: 70px;
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        .cart-totals {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #e2e8f0;
+        }
+        
+        .total-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 8px 0;
+        }
+        
+        .total-line.final {
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 2px dashed #e2e8f0;
+        }
+        
+        .action-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), #e6c34e);
+            color: var(--primary);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-large {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .action-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .action-group .action-btn {
+            flex: 1;
+        }
+        
+        .success-msg {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid #c8e6c9;
+        }
+        
+        .success-icon {
+            font-size: 1.5rem;
+            color: #38a169;
+            margin-bottom: 10px;
+        }
+        
+        .success-msg p {
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        /* Features */
+        .features-section {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+        
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-heading h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        .site-footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d3748 100%);
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px 60px;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-links a i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-info i {
+            margin-left: 12px;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .copyright {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 25px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Product Layout */
         @media (max-width: 992px) {
-            .product-detail { grid-template-columns:1fr; }
-            .main-image { height:300px; }
+            .product-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-image {
+                height: 300px;
+            }
         }
-        @media (max-width:768px) {
-            .header-container { flex-direction:row; gap:15px; padding:8px 15px; }
-            .nav-container { width:auto; justify-content:flex-end; }
-            .main-nav { display:none; }
-            .search-box { display:none; }
-            .product-info h1 { font-size:2rem; }
-            .product-price-large { font-size:1.8rem; }
-            .container { padding:0 15px; }
-            .action-buttons { flex-direction:column; }
-            .header-actions { gap:8px; }
-            .cart-icon { font-size:1.1rem; padding:6px; }
-            .cart-count { width:16px; height:16px; font-size:0.7rem; top:2px; left:2px; }
-            .logo-text h1 { font-size:1.5rem; }
-            .logo-icon { width:35px; height:35px; font-size:1rem; }
-            .logo-text p { display:none; }
-            .specifications li { flex-direction:column; gap:5px; }
-            .spec-name { width:auto; }
-            .feature-icon { width:60px; height:60px; font-size:1.5rem; }
-            .feature-item { padding:20px; }
-            .mobile-menu-btn { display:block; }
+
+        @media (max-width: 768px) {
+            .product-header h1 {
+                font-size: 2rem;
+            }
+            
+            .product-price {
+                font-size: 1.8rem;
+            }
+            
+            .action-group {
+                flex-direction: column;
+            }
         }
-        @media (max-width:576px) {
-            .header-container { padding:6px 12px; }
-            .logo-text h1 { font-size:1.3rem; }
-            .logo-icon { width:30px; height:30px; font-size:0.9rem; }
-            .add-to-cart-section { padding:20px; }
-            .features-grid { grid-template-columns:1fr; }
-            .footer-content { grid-template-columns:1fr; gap:30px; }
-            .product-page { padding:60px 0; }
-            .product-info h1 { font-size:1.8rem; }
-            .product-price-large { font-size:1.6rem; }
-            .section-title h2 { font-size:1.8rem; }
-            .cart-summary { padding:15px; }
-            .quantity-control { justify-content:center; }
-        }
-        @media (max-width:480px) {
-            .header-container { padding:5px 10px; }
-            .logo-text h1 { font-size:1.2rem; }
-            .logo-icon { width:28px; height:28px; font-size:0.8rem; }
-            .cart-icon { font-size:0.9rem; }
-            .mobile-menu { width:280px; }
-        }
-        @media (max-width:360px) {
-            .header-container { padding:5px 8px; }
-            .logo-text h1 { font-size:1.1rem; }
-            .logo-icon { width:26px; height:26px; font-size:0.8rem; }
-            .cart-icon { font-size:0.9rem; }
-            .mobile-menu { width:260px; }
+
+        @media (max-width: 576px) {
+            .product-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .product-price {
+                font-size: 1.6rem;
+            }
+            
+            .section-heading h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo" onclick="window.location.href='index.html'">
-                <div class="logo-icon"><i class="fas fa-tools"></i></div>
-                <div class="logo-text"><h1>QSV</h1><p>الأدوات والمعدات الاحترافية</p></div>
+    <!-- Simplified Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="site-logo" onclick="window.location.href='index.html'">
+                <div class="logo-circle">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>QSV</h1>
+                    <p>الأدوات والمعدات الاحترافية</p>
+                </div>
             </div>
-
-            <div class="nav-container">
-                <ul class="main-nav">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="index.html#productsSection">المنتجات</a></li>
-                    <li><a href="#">العلامات التجارية</a></li>
-                    <li><a href="#">اتصل بنا</a></li>
+            
+            <nav class="site-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html">الرئيسية</a></li>
+                    <li class="nav-item"><a href="index.html#productsSection">المنتجات</a></li>
+                    <li class="nav-item"><a href="#">العلامات التجارية</a></li>
+                    <li class="nav-item"><a href="#">اتصل بنا</a></li>
                 </ul>
-
-                <div class="header-actions">
-                    <div class="search-box">
-                        <input type="text" placeholder="ابحث عن المنتج..." />
-                        <button aria-label="search"><i class="fas fa-search"></i></button>
+                
+                <div class="header-tools">
+                    <div class="search-wrapper">
+                        <input type="text" class="search-input" placeholder="ابحث عن المنتج...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
                     </div>
-
-                    <div class="cart-icon" onclick="window.location.href='cart.html'">
+                    <div class="cart-wrapper" onclick="window.location.href='cart.html'">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count" id="cart-count">0</span>
+                        <span class="cart-badge" id="cart-count">0</span>
                     </div>
-
-                    <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="فتح القائمة">
+                    <button class="mobile-toggle">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
-            </div>
+            </nav>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-        <div class="mobile-menu-header">
-            <h3>القائمة</h3>
-            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="اغلاق القائمة">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <ul class="mobile-nav">
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="index.html#productsSection">المنتجات</a></li>
-            <li><a href="#">العلامات التجارية</a></li>
-            <li><a href="#">اتصل بنا</a></li>
-        </ul>
-
-        <div class="mobile-search">
-            <div class="mobile-search-box">
-                <input type="text" placeholder="ابحث عن المنتج..." />
-                <button aria-label="mobile-search"><i class="fas fa-search"></i></button>
-            </div>
-        </div>
-    </div>
-
-    <div class="overlay" id="overlay" tabindex="-1"></div>
-
-    <!-- Product Page -->
+    <!-- Product Content -->
     <section class="product-page">
         <div class="container">
-            <a href="index.html" class="back-to-products"><i class="fas fa-arrow-right"></i> العودة إلى المنتجات</a>
-
-            <div class="product-detail">
-                <div class="product-images">
-                    <div class="main-image">
-                        <img src="https://www.outillage-avenue.com/lib/picts/prod1/50006.jpg"
-                             alt="SCHNEIDER Aspirateur 50 L 1600 W"
-                             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmYWZjIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzcxODA5NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuKEoiBQcm9kdWN0IEltYWdlIOKEojwvdGV4dD48L3N2Zz4='"
-                        />
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة إلى المنتجات</a>
+            
+            <div class="product-layout">
+                <div class="product-gallery">
+                    <div class="product-image">
+                        <img src="https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg" alt="Meuleuse d'angle 1000W">
                     </div>
                 </div>
-
-                <div class="product-info">
-                    <h1>SCHNEIDER Aspirateur 50 L 1600 W</h1>
-                    <span class="product-price-large">25,000 د.ج</span>
-
-                    <p class="product-description">
-                        مكنسة صناعية احترافية بخزان 50 لتر بقوة 1600 واط، مثالية لورش العمل والمواقع الصناعية.
-                        تتميز بخزان فولاذي مقاوم للصدمات، نظام ترشيح HEPA مع فلتر فوم، وعجلات متعددة الاتجاهات لسهولة الحركة.
+                
+                <div class="product-header">
+                    <h1>Meuleuse d'angle 1000W</h1>
+                    <span class="product-price">3,800 د.ج</span>
+                    <p class="product-desc">
+                        ماكينة جلخ زاوية بقوة 1000 واط، مثالية لقطع وتلميع المعادن والمواد الصلبة. تتميز بمحرك قوي يتحمل العمل الشاق، مع تصميم مريح يسهل الاستخدام لفترات طويلة. مثالية للاستخدام في ورش العمل والمواقع الإنشائية.
                     </p>
-
-                    <div class="specifications">
+                    
+                    <div class="specs-box">
                         <h3>المواصفات الفنية</h3>
-                        <ul>
-                            <li><span class="spec-name">الماركة:</span><span class="spec-value">SCHNEIDER</span></li>
-                            <li><span class="spec-name">سعة الخزان:</span><span class="spec-value">50 لتر</span></li>
-                            <li><span class="spec-name">القدرة:</span><span class="spec-value">1600 واط</span></li>
-                            <li><span class="spec-name">نظام الترشيح:</span><span class="spec-value">HEPA + فلتر فوم</span></li>
-                            <li><span class="spec-name">مادة الخزان:</span><span class="spec-value">فولاذ / ستانلس</span></li>
-                            <li><span class="spec-name">الاستخدام:</span><span class="spec-value">صناعي / ورش عمل</span></li>
+                        <ul class="specs-list">
+                            <li class="specs-item">
+                                <span class="spec-label">الجهد الكهربائي:</span>
+                                <span class="spec-value">220-240V~50/60Hz</span>
+                            </li>
+                            <li class="specs-item">
+                                <span class="spec-label">القدرة:</span>
+                                <span class="spec-value">1000 W</span>
+                            </li>
+                            <li class="specs-item">
+                                <span class="spec-label">السرعة بدون حمل:</span>
+                                <span class="spec-value">11000 دورة/دقيقة</span>
+                            </li>
+                            <li class="specs-item">
+                                <span class="spec-label">قطر القرص:</span>
+                                <span class="spec-value">115 ملم</span>
+                            </li>
+                            <li class="specs-item">
+                                <span class="spec-label">الوزن:</span>
+                                <span class="spec-value">1.6 كغ</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-            <!-- Add to Cart Section -->
-            <div class="add-to-cart-section">
+            
+            <!-- Cart Section -->
+            <div class="cart-section">
                 <h2>أضف إلى سلة التسوق</h2>
-
+                
                 <div class="cart-summary">
                     <h3>ملخص الطلب</h3>
-
-                    <div class="quantity-control">
-                        <button class="quantity-btn" id="decrease-qty" aria-label="نقص الكمية">-</button>
-                        <input type="number" class="quantity-input" id="quantity" value="1" min="1" />
-                        <button class="quantity-btn" id="increase-qty" aria-label="زيادة الكمية">+</button>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" id="decrease-qty">-</button>
+                        <input type="number" class="qty-input" id="quantity" value="1" min="1">
+                        <button class="qty-btn" id="increase-qty">+</button>
                     </div>
-
+                    
                     <div class="cart-totals">
-                        <div class="total-row">
+                        <div class="total-line">
                             <span>المجموع الجزئي:</span>
-                            <span id="subtotal">25,000 د.ج</span>
+                            <span id="subtotal">3,800 د.ج</span>
                         </div>
-                        <div class="total-row">
+                        <div class="total-line">
                             <span>تكاليف الشحن:</span>
                             <span id="shipping">500 د.ج</span>
                         </div>
-                        <div class="total-row final">
+                        <div class="total-line final">
                             <span>المجموع الكلي:</span>
-                            <span id="total">25,500 د.ج</span>
+                            <span id="total">4,300 د.ج</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="action-buttons">
-                    <button class="btn btn-large" id="add-to-cart"><i class="fas fa-cart-plus"></i> أضف إلى السلة</button>
-                    <a href="cart.html" class="btn btn-outline"><i class="fas fa-shopping-cart"></i> عرض السلة</a>
+                
+                <div class="action-group">
+                    <button class="action-btn btn-large" id="add-to-cart">
+                        <i class="fas fa-cart-plus"></i> أضف إلى السلة
+                    </button>
+                    <a href="cart.html" class="action-btn btn-outline">
+                        <i class="fas fa-shopping-cart"></i> عرض السلة
+                    </a>
                 </div>
-
-                <div class="success-message" id="success-message" role="status" aria-live="polite">
-                    <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+                
+                <div class="success-msg" id="success-message">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                     <p>تمت إضافة المنتج إلى سلة التسوق بنجاح!</p>
-                    <a href="cart.html" class="btn">الذهاب إلى السلة</a>
+                    <a href="cart.html" class="action-btn">الذهاب إلى السلة</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="product-features">
+    <section class="features-section">
         <div class="container">
-            <div class="section-title"><h2>مميزات المنتج</h2></div>
-
+            <div class="section-heading">
+                <h2>مميزات المنتج</h2>
+            </div>
+            
             <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-wind"></i></div>
-                    <h3>شفط قوي</h3>
-                    <p>محرك بقوة 1600 واط يوفر شفطاً قوياً وفعالاً للغبار والمواد الصلبة</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>قوة فائقة</h3>
+                    <p>محرك بقوة 1000 واط يوفر أداءً متميزاً في القطع والتلميع</p>
                 </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-filter"></i></div>
-                    <h3>ترشيح متقدم</h3>
-                    <p>نظام ترشيح HEPA مع فلتر فوم يضمن احتجاز الجسيمات الدقيقة والغبار</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>سرعة عالية</h3>
+                    <p>سرعة دوران تصل إلى 11000 دورة في الدقيقة للقطع السريع والدقيق</p>
                 </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-box"></i></div>
-                    <h3>سعة كبيرة</h3>
-                    <p>خزان بسعة 50 لتر يسمح بالعمل لفترات طويلة دون الحاجة للتفريغ المتكرر</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3>خفيفة الوزن</h3>
+                    <p>تصميم خفيف الوزن (1.6 كغ) يسهل الاستخدام لفترات طويلة</p>
                 </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-cogs"></i></div>
-                    <h3>متانة عالية</h3>
-                    <p>خزان فولاذي / ستانلس مقاوم للصدمات والتآكل مع عجلات متعددة الاتجاهات</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>حماية متكاملة</h3>
+                    <p>نظام حماية من السخونة الزائدة وغطاء حماية للقرص</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-column">
                 <h3>عن الشركة</h3>
                 <p>QSV هي شركة رائدة في مجال توريد الأدوات والمعدات المهنية، نقدم منتجات عالية الجودة مع خدمة عملاء متميزة وضمان شامل على جميع المنتجات.</p>
-                <div class="social-icons">
+                <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-
+            
             <div class="footer-column">
                 <h3>روابط سريعة</h3>
                 <ul class="footer-links">
@@ -408,7 +899,7 @@
                     <li><a href="#">اتصل بنا <i class="fas fa-chevron-left"></i></a></li>
                 </ul>
             </div>
-
+            
             <div class="footer-column">
                 <h3>معلومات الاتصال</h3>
                 <div class="contact-info">
@@ -419,200 +910,116 @@
                 </div>
             </div>
         </div>
-
-        <div class="copyright"><p>جميع الحقوق محفوظة &copy; 2023 QSV</p></div>
+        
+        <div class="copyright">
+            <p>جميع الحقوق محفوظة &copy; 2023 QSV</p>
+        </div>
     </footer>
 
     <script>
-        // --- Data (unchanged) ---
+        // Product data
         const product = {
-            id: '5',
-            name: 'SCHNEIDER Aspirateur 50 L 1600 W',
-            price: 25000,
-            image: 'https://www.outillage-avenue.com/lib/picts/prod1/50006.jpg'
+            id: '2',
+            name: 'Meuleuse d\'angle 1000W',
+            price: 3800,
+            image: 'https://soficlef.dz/wp-content/uploads/2021/10/M1000-115-600x600.jpg'
         };
-
-        // --- Shopping Cart Functions (robustified slightly) ---
+        
+        // Cart functions
         function getCart() {
-            try {
-                return JSON.parse(localStorage.getItem('qsv_cart')) || {};
-            } catch (error) {
-                console.error('Error reading cart from localStorage:', error);
-                return {};
-            }
+            return JSON.parse(localStorage.getItem('qsv_cart')) || {};
         }
-
+        
         function saveCart(cart) {
-            try {
-                localStorage.setItem('qsv_cart', JSON.stringify(cart));
-                updateCartCount();
-            } catch (error) {
-                console.error('Error saving cart to localStorage:', error);
-            }
+            localStorage.setItem('qsv_cart', JSON.stringify(cart));
+            updateCartCount();
         }
-
+        
         function addToCart(productId, productName, productPrice, productImage, quantity = 1) {
-            try {
-                const cart = getCart();
-
-                if (cart[productId]) {
-                    cart[productId].quantity += quantity;
-                } else {
-                    cart[productId] = {
-                        id: productId,
-                        name: productName,
-                        price: parseInt(productPrice, 10) || 0,
-                        image: productImage,
-                        quantity: quantity
-                    };
-                }
-
-                saveCart(cart);
-                return true;
-            } catch (error) {
-                console.error('Error adding to cart:', error);
-                return false;
+            const cart = getCart();
+            
+            if (cart[productId]) {
+                cart[productId].quantity += quantity;
+            } else {
+                cart[productId] = {
+                    id: productId,
+                    name: productName,
+                    price: parseInt(productPrice),
+                    image: productImage,
+                    quantity: quantity
+                };
             }
+            
+            saveCart(cart);
+            return true;
         }
-
+        
         function updateCartCount() {
-            try {
-                const cart = getCart();
-                const totalItems = Object.values(cart).reduce((total, item) => total + (item.quantity || 0), 0);
-                const cartCountEl = document.getElementById('cart-count');
-                if (cartCountEl) cartCountEl.textContent = totalItems;
-            } catch (error) {
-                console.error('Error updating cart count:', error);
-            }
+            const cart = getCart();
+            const totalItems = Object.values(cart).reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
         }
-
-        // --- Mobile Menu ---
-        function toggleMobileMenu() {
-            try {
-                const mobileMenu = document.getElementById('mobile-menu');
-                const overlay = document.getElementById('overlay');
-                if (!mobileMenu || !overlay) return;
-
-                const isActive = mobileMenu.classList.toggle('active');
-                overlay.classList.toggle('active', isActive);
-
-                // prevent body scroll when menu is open
-                document.body.style.overflow = isActive ? 'hidden' : '';
-                mobileMenu.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-            } catch (error) {
-                console.error('Error toggling mobile menu:', error);
-            }
-        }
-
-        // --- DOM ready: wire up handlers ---
+        
+        // Page load
         document.addEventListener('DOMContentLoaded', function() {
-            try {
-                const quantityInput = document.getElementById('quantity');
-                const decreaseBtn = document.getElementById('decrease-qty');
-                const increaseBtn = document.getElementById('increase-qty');
-                const subtotalEl = document.getElementById('subtotal');
-                const totalEl = document.getElementById('total');
-                const addToCartBtn = document.getElementById('add-to-cart');
-                const successMessage = document.getElementById('success-message');
-                const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-                const mobileMenuClose = document.getElementById('mobile-menu-close');
-                const overlayEl = document.getElementById('overlay');
-
-                // Mobile menu listeners
-                if (mobileMenuToggle) mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-                if (mobileMenuClose) mobileMenuClose.addEventListener('click', toggleMobileMenu);
-                if (overlayEl) overlayEl.addEventListener('click', toggleMobileMenu);
-
-                // update calculations safely
-                function updateCalculations() {
-                    try {
-                        const quantity = quantityInput ? (parseInt(quantityInput.value, 10) || 1) : 1;
-                        const subtotal = product.price * quantity;
-                        const shipping = 500;
-                        const total = subtotal + shipping;
-
-                        if (subtotalEl) subtotalEl.textContent = subtotal.toLocaleString() + ' د.ج';
-                        if (totalEl) totalEl.textContent = total.toLocaleString() + ' د.ج';
-                    } catch (err) {
-                        console.error('Error updating calculations:', err);
-                    }
-                }
-
-                // run on load
-                updateCalculations();
-                updateCartCount();
-
-                // quantity controls
-                if (decreaseBtn) {
-                    decreaseBtn.addEventListener('click', function() {
-                        if (!quantityInput) return;
-                        let q = parseInt(quantityInput.value, 10) || 1;
-                        if (q > 1) {
-                            quantityInput.value = q - 1;
-                            updateCalculations();
-                        }
-                    });
-                }
-
-                if (increaseBtn) {
-                    increaseBtn.addEventListener('click', function() {
-                        if (!quantityInput) return;
-                        let q = parseInt(quantityInput.value, 10) || 1;
-                        quantityInput.value = q + 1;
-                        updateCalculations();
-                    });
-                }
-
-                if (quantityInput) {
-                    quantityInput.addEventListener('input', function() {
-                        let q = parseInt(this.value, 10);
-                        if (isNaN(q) || q < 1) {
-                            this.value = 1;
-                        }
-                        updateCalculations();
-                    });
-                }
-
-                // add to cart
-                if (addToCartBtn) {
-                    addToCartBtn.addEventListener('click', function() {
-                        const quantity = quantityInput ? (parseInt(quantityInput.value, 10) || 1) : 1;
-                        if (addToCart(product.id, product.name, product.price, product.image, quantity)) {
-                            if (successMessage) {
-                                successMessage.style.display = 'block';
-                                setTimeout(() => {
-                                    if (successMessage) successMessage.style.display = 'none';
-                                }, 5000);
-                            }
-                        }
-                    });
-                }
-
-                // close mobile menu on link click
-                const mobileLinks = document.querySelectorAll('.mobile-nav a');
-                if (mobileLinks && mobileLinks.forEach) {
-                    mobileLinks.forEach(link => {
-                        link.addEventListener('click', function() {
-                            // close menu if open
-                            const mobileMenu = document.getElementById('mobile-menu');
-                            const overlay = document.getElementById('overlay');
-                            if (mobileMenu && mobileMenu.classList.contains('active')) {
-                                mobileMenu.classList.remove('active');
-                                if (overlay) overlay.classList.remove('active');
-                                document.body.style.overflow = '';
-                                mobileMenu.setAttribute('aria-hidden', 'true');
-                            }
-                        });
-                    });
-                }
-            } catch (error) {
-                console.error('Error in DOMContentLoaded:', error);
+            const quantityInput = document.getElementById('quantity');
+            const decreaseBtn = document.getElementById('decrease-qty');
+            const increaseBtn = document.getElementById('increase-qty');
+            const subtotalEl = document.getElementById('subtotal');
+            const totalEl = document.getElementById('total');
+            const addToCartBtn = document.getElementById('add-to-cart');
+            const successMessage = document.getElementById('success-message');
+            
+            // Update calculations
+            function updateCalculations() {
+                const quantity = parseInt(quantityInput.value);
+                const subtotal = product.price * quantity;
+                const shipping = 500;
+                const total = subtotal + shipping;
+                
+                subtotalEl.textContent = subtotal.toLocaleString() + ' د.ج';
+                totalEl.textContent = total.toLocaleString() + ' د.ج';
             }
-        });
-
-        // keep cart count fresh if user switches tab
-        document.addEventListener('visibilitychange', function() {
-            if (!document.hidden) updateCartCount();
+            
+            // Initial setup
+            updateCalculations();
+            updateCartCount();
+            
+            // Quantity buttons
+            decreaseBtn.addEventListener('click', function() {
+                let quantity = parseInt(quantityInput.value);
+                if (quantity > 1) {
+                    quantityInput.value = quantity - 1;
+                    updateCalculations();
+                }
+            });
+            
+            increaseBtn.addEventListener('click', function() {
+                let quantity = parseInt(quantityInput.value);
+                quantityInput.value = quantity + 1;
+                updateCalculations();
+            });
+            
+            quantityInput.addEventListener('input', function() {
+                let quantity = parseInt(this.value);
+                if (isNaN(quantity) || quantity < 1) {
+                    this.value = 1;
+                }
+                updateCalculations();
+            });
+            
+            // Add to cart
+            addToCartBtn.addEventListener('click', function() {
+                const quantity = parseInt(quantityInput.value);
+                
+                if (addToCart(product.id, product.name, product.price, product.image, quantity)) {
+                    successMessage.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                }
+            });
         });
     </script>
 </body>
