@@ -657,6 +657,112 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: var(--primary);
+            z-index: 2000;
+            transition: var(--transition);
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-nav {
+            list-style: none;
+        }
+        
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 12px 15px;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .mobile-nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-search {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-search-box {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        
+        .mobile-search-box input {
+            background: transparent;
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            flex: 1;
+        }
+        
+        .mobile-search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .mobile-search-box button {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
         /* Responsive - Fixed */
         @media (max-width: 992px) {
             .product-detail {
@@ -684,8 +790,8 @@
                 display: none;
             }
             
-            .search-box input {
-                width: 120px;
+            .search-box {
+                display: none;
             }
             
             .product-info h1 {
@@ -708,15 +814,6 @@
                 gap: 8px;
             }
             
-            .search-box input {
-                width: 100px;
-                padding: 6px 10px;
-            }
-            
-            .search-box button {
-                padding: 6px 8px;
-            }
-            
             .cart-icon {
                 font-size: 1.1rem;
                 padding: 6px;
@@ -729,12 +826,6 @@
                 top: 2px;
                 left: 2px;
             }
-        }
-        
-        @media (max-width: 576px) {
-            .header-container {
-                padding: 6px 12px;
-            }
             
             .logo-text h1 {
                 font-size: 1.5rem;
@@ -746,20 +837,43 @@
                 font-size: 1rem;
             }
             
-            .search-box input {
-                width: 80px;
-                padding: 5px 8px;
-                font-size: 0.8rem;
+            .logo-text p {
+                display: none;
             }
             
-            .search-box button {
-                padding: 5px 7px;
-                font-size: 0.8rem;
+            .specifications li {
+                flex-direction: column;
+                gap: 5px;
             }
             
-            .cart-icon {
-                font-size: 1rem;
-                padding: 5px;
+            .spec-name {
+                width: auto;
+            }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .feature-item {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 6px 12px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
             }
             
             .add-to-cart-section {
@@ -775,12 +889,6 @@
                 gap: 30px;
             }
             
-            .logo-text p {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 480px) {
             .product-page {
                 padding: 60px 0;
             }
@@ -804,29 +912,11 @@
             .quantity-control {
                 justify-content: center;
             }
-            
-            .header-container {
-                padding: 5px 10px;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.3rem;
-            }
-            
-            .logo-icon {
-                width: 30px;
-                height: 30px;
-                font-size: 0.9rem;
-            }
-            
-            .search-box {
-                display: none;
-            }
         }
         
-        @media (max-width: 360px) {
+        @media (max-width: 480px) {
             .header-container {
-                padding: 5px 8px;
+                padding: 5px 10px;
             }
             
             .logo-text h1 {
@@ -841,6 +931,34 @@
             
             .cart-icon {
                 font-size: 0.9rem;
+            }
+            
+            .mobile-menu {
+                width: 280px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .header-container {
+                padding: 5px 8px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+            
+            .logo-icon {
+                width: 26px;
+                height: 26px;
+                font-size: 0.8rem;
+            }
+            
+            .cart-icon {
+                font-size: 0.9rem;
+            }
+            
+            .mobile-menu {
+                width: 260px;
             }
         }
         
@@ -893,13 +1011,36 @@
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count" id="cart-count">0</span>
                     </div>
-                    <button class="mobile-menu-btn">
+                    <button class="mobile-menu-btn" id="mobile-menu-toggle">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3>القائمة</h3>
+            <button class="mobile-menu-close" id="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="index.html#productsSection">المنتجات</a></li>
+            <li><a href="#">العلامات التجارية</a></li>
+            <li><a href="#">اتصل بنا</a></li>
+        </ul>
+        <div class="mobile-search">
+            <div class="mobile-search-box">
+                <input type="text" placeholder="ابحث عن المنتج...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
 
     <!-- Product Page -->
     <section class="product-page">
@@ -1125,6 +1266,15 @@
             document.getElementById('cart-count').textContent = totalItems;
         }
         
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('overlay');
+            
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+        
         // عند تحميل الصفحة
         document.addEventListener('DOMContentLoaded', function() {
             const quantityInput = document.getElementById('quantity');
@@ -1134,6 +1284,14 @@
             const totalEl = document.getElementById('total');
             const addToCartBtn = document.getElementById('add-to-cart');
             const successMessage = document.getElementById('success-message');
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const overlay = document.getElementById('overlay');
+            
+            // Mobile menu event listeners
+            mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+            mobileMenuClose.addEventListener('click', toggleMobileMenu);
+            overlay.addEventListener('click', toggleMobileMenu);
             
             // تحديث الحسابات
             function updateCalculations() {
